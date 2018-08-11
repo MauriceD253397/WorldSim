@@ -20,8 +20,6 @@ if($countedUsername >= 1)
 
     <script type='text/javascript'>
         setTimeout(function () {
-            alert('logged in succesfully! You are being redirected to the home page');
-
             window.location.replace("../public/index.php");
         },300);
     </script>
