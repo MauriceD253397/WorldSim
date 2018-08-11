@@ -25,6 +25,7 @@
             if (isset($_SESSION['login']))
             {
                 ?>
+                <a href="../app/LogoutHandler.php">Click here to logout!</a>
                 <h2>Welcome back!</h2>
                 <div class="playButton">
                 <a href="gamePage.php"> Click here to make a new save or start where you left!</a>
