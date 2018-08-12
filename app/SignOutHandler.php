@@ -10,6 +10,5 @@ session_destroy();
 
 <script type='text/javascript'>
     setTimeout(function () {
-        alert('Logged out succesfully!');
         window.location.replace("../public/index.php");
     },300);</script>
