@@ -48,7 +48,7 @@
                                 <div class="highscoreButton">HIGHSCORES</div>
                             </a>
                             
-                            <a href="../app/LogoutHandler.php">
+                            <a href="../app/SignOutHandler.php">
                                 <div>SIGN OUT</div>
                             </a>
                             
