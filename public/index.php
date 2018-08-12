@@ -25,9 +25,39 @@
             if (isset($_SESSION['login']))
             {
                 ?>
-                <h2>Welcome back!</h2>
-                <div class="playButton">
-                <a href="gamePage.php"> Click here to make a new save or start where you left!</a>
+                <div class="indexdiv">
+                    
+                    <div></div>
+                    
+                    <div class="indexmid">
+                        
+                        <div></div>
+                        
+                        <h1>WorldSim</h1>
+                        
+                        <div></div>
+                        
+                        <div class="buttons">
+                            
+                            
+                            <a href="gamePage.php">
+                                <div class="playButton">PLAY</div>
+                            </a>
+                            
+                            <a href="highscores.php">
+                                <div class="highscoreButton">HIGHSCORES</div>
+                            </a>
+                            
+                            <a href="../app/LogoutHandler.php">
+                                <div>SIGN OUT</div>
+                            </a>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div></div>
+                    
                 </div>
                 <?php
 
