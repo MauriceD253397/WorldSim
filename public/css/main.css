@@ -160,14 +160,12 @@ textarea {
     }
 
     .loginContent {
-      background-color: #eee;
       color: #000;
     }
 
     .loginContent,
     .signUpContent {
       width: 100%;
-      background-color: #eee;
       padding: 20px 30px 30px 30px;
     }
 
@@ -181,9 +179,10 @@ textarea {
     }
 
     input {
-      width: 100%;
+      width: 96%;
       padding: 12px;
-      margin-bottom: 15px;
+        margin-left: -30px;
+      margin-bottom: 16px;
       font-size: 20px;
       background-color: #fff;
       color: #666;

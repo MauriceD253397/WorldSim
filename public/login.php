@@ -51,7 +51,6 @@
 
         <div class="loginContent">
             <form action="../app/LoginHandler.php" method="post">
-                <h2>Login</h2>
                 <input type="text" name="user_login" placeholder="Username/E-mail" required autofocus>
                 <input type="password" name="pass_login" placeholder="Password" required>
                 <input id="submit" type="submit" value="Log in">
@@ -60,7 +59,6 @@
 
         <div class="signUpContent">
             <form action="../app/RegisterHandler.php" method="post">
-                <h2>Sign Up</h2>
                 <input type="text" name="user_register" placeholder="Enter your username here" required autofocus>
                 <input type="email" name="email_register" placeholder="Enter your e-mail here" required>
                 <input type="password" name="pass_register" placeholder="Enter your password here" required>
