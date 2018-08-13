@@ -120,18 +120,32 @@ else{
 
 ?>
 <pre>
+    <h2>if you read this have a nice day ;)</h2>
     <?php
+    /*
 var_dump($userLength);
 var_dump($userExist);
 var_dump($passLength);
 var_dump($passCapital);
 var_dump($passNumber);
+    */
     ?>
 </pre>
 <?php
 if ($userLength  == true && $userExist == true && $passLength == true && $passCapital == true && $passNumber == true ) {
 
     inputAccountData($user_register,$hashedPass,$email_register,$database);
+
+    session_start();
+    $_SESSION['login'] = $user_login;
+    ?>
+    <script type='text/javascript'>
+        setTimeout(function () {
+            window.location.replace("../public/index.php");
+        });</script>
+
+
+<?php
 }
 // we hoeven nu geen else te maken omdat we al een else bij alle andere fouten hebben gedaan.
 ?>
