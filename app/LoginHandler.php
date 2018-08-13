@@ -5,8 +5,8 @@ require('config/DatabaseConnector.php');
 require('PostHandler.php');
 
 $hashedPass = md5($pass_login);
-
-$getUsername = "SELECT * FROM `tbl_login` WHERE `username` = `password` = '$hashedPass' AND ('$user_login' OR `username` = '$email_login')";
+$getUsername = "SELECT * FROM `tbl_login` WHERE `username` = '$user_login' OR `email` = '$email_login' AND `password` = '$hashedPass'";
+//$getUsername = "SELECT * FROM `tbl_login` WHERE `username` = `password` = '$hashedPass' AND ('$user_login' OR `username` = '$email_login')";
 
 $uncountedUsername = $database->query($getUsername)->fetchAll();
 
