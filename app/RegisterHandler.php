@@ -150,6 +150,7 @@ var_dump($passLength);
 var_dump($passCapital);
 var_dump($passNumber);
 var_dump($passEqual);
+*/
     ?>
 </pre>
 <?php
