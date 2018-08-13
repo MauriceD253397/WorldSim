@@ -7,10 +7,12 @@ $userExist = false;
 $passLength = false;
 $passCapital = false;
 $passNumber = false;
+$passEqual = false;
 
 $user_register = $_POST['user_register'];
 $email_register = $_POST['email_register'];
 $pass_register = $_POST['pass_register'];
+$confirm_pass_register = $_POST['confirm_pass_register'];
 
 $hashedPass = md5($pass_register);
 
@@ -101,6 +103,25 @@ else {
     <?php
 }
 
+if ( $pass_register == $confirm_pass_register )
+{
+    $passEqual = true;
+}
+
+else {
+
+
+    ?>
+
+    <script type='text/javascript'>
+        setTimeout(function () {
+            alert('Please make sure your passwords are the same');
+            window.location.replace("../public/login.php");
+        }, 300);</script>
+
+    <?php
+}
+
 if (preg_match("#[A-Z]+#", $pass_register))
 {
     $passCapital = true;
@@ -128,24 +149,25 @@ var_dump($userExist);
 var_dump($passLength);
 var_dump($passCapital);
 var_dump($passNumber);
-    */
+var_dump($passEqual);
     ?>
 </pre>
 <?php
-if ($userLength  == true && $userExist == true && $passLength == true && $passCapital == true && $passNumber == true ) {
+if ($userLength  == true && $userExist == true && $passLength == true && $passCapital == true && $passNumber == true && $passEqual == true) {
 
     inputAccountData($user_register,$hashedPass,$email_register,$database);
-
+    
     session_start();
-    $_SESSION['login'] = $user_login;
+    $_SESSION['login'] = $user_register;
     ?>
+
     <script type='text/javascript'>
         setTimeout(function () {
             window.location.replace("../public/index.php");
-        });</script>
+        },0);
+    </script>
 
-
-<?php
+    <?php
 }
 // we hoeven nu geen else te maken omdat we al een else bij alle andere fouten hebben gedaan.
 ?>
