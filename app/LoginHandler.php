@@ -21,9 +21,18 @@ if($countedUsername >= 1)
     <script type='text/javascript'>
         setTimeout(function () {
             window.location.replace("../public/index.php");
-        },300);
+        },0);
     </script>
 
     <?php
+}
+else {
+?>
+    <script type='text/javascript'>
+        setTimeout(function () {
+            window.location.replace("../public/login.php");
+        },0);
+    </script>
+<?php
 }
 ?>
