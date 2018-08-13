@@ -25,10 +25,39 @@
             if (isset($_SESSION['login']))
             {
                 ?>
-                <a href="../app/LogoutHandler.php">Click here to logout!</a>
-                <h2>Welcome back!</h2>
-                <div class="playButton">
-                <a href="gamePage.php"> Click here to make a new save or start where you left!</a>
+                <div class="indexdiv">
+                    
+                    <div></div>
+                    
+                    <div class="indexmid">
+                        
+                        <div></div>
+                        
+                        <h1>WorldSim</h1>
+                        
+                        <div></div>
+                        
+                        <div class="buttons">
+                            
+                            
+                            <a href="gamePage.php">
+                                <div>PLAY</div>
+                            </a>
+                            
+                            <a href="highscores.php">
+                                <div>HIGHSCORES</div>
+                            </a>
+                            
+                            <a href="../app/SignOutHandler.php">
+                                <div>SIGN OUT</div>
+                            </a>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div></div>
+                    
                 </div>
                 <?php
 
@@ -36,17 +65,43 @@
             else{
 
                 ?>
-                <h2>You need an account in order to play and make a new save</h2>
-                <div class="registerButton">
-                <a href="login.php">Create account </a>
+                <div class="indexdiv">
+                    
+                    <div></div>
+                    
+                    <div class="indexmid">
+                        
+                        <div></div>
+                        
+                        <h1>WorldSim</h1>
+                        
+                        <div></div>
+                        
+                        <div class="buttons">
+                            
+                            <div class="unavailableButton">
+                                <div>PLAY</div>
+                            </div>
+                            
+                            <a href="highscores.php">
+                                <div>HIGHSCORES</div>
+                            </a>
+                            
+                            <a href="login.php">
+                                <div>LOG IN</div>
+                            </a>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div></div>
+                    
                 </div>
                 <?php
             }
                  ?>
         </div>
-    </div>
-
-</div>
 <script src="js/vendor/modernizr-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
