@@ -65,9 +65,39 @@
             else{
 
                 ?>
-                <h2>You need an account in order to play and make a new save</h2>
-                <div class="registerButton">
-                <a href="login.php">Create account </a>
+                <div class="indexdiv">
+                    
+                    <div></div>
+                    
+                    <div class="indexmid">
+                        
+                        <div></div>
+                        
+                        <h1>WorldSim</h1>
+                        
+                        <div></div>
+                        
+                        <div class="buttons">
+                            
+                            
+                            <a href="gamePage.php">
+                                <div class="playButton">PLAY</div>
+                            </a>
+                            
+                            <a href="highscores.php">
+                                <div class="highscoreButton">HIGHSCORES</div>
+                            </a>
+                            
+                            <a href="login.php">
+                                <div>LOG IN</div>
+                            </a>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div></div>
+                    
                 </div>
                 <?php
             }
