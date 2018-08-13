@@ -41,11 +41,11 @@
                             
                             
                             <a href="gamePage.php">
-                                <div class="playButton">PLAY</div>
+                                <div>PLAY</div>
                             </a>
                             
                             <a href="highscores.php">
-                                <div class="highscoreButton">HIGHSCORES</div>
+                                <div>HIGHSCORES</div>
                             </a>
                             
                             <a href="../app/SignOutHandler.php">
@@ -79,13 +79,12 @@
                         
                         <div class="buttons">
                             
-                            
-                            <a href="gamePage.php">
-                                <div class="playButton">PLAY</div>
-                            </a>
+                            <div class="unavailableButton">
+                                <div>PLAY</div>
+                            </div>
                             
                             <a href="highscores.php">
-                                <div class="highscoreButton">HIGHSCORES</div>
+                                <div>HIGHSCORES</div>
                             </a>
                             
                             <a href="login.php">
