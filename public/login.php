@@ -63,8 +63,9 @@
                 <input type="email" name="email_register" placeholder="Enter your e-mail here" required>
                 <input type="password" name="pass_register" placeholder="Enter your password here" required>
                 <input type="password" name="confirm_pass_register" placeholder="Confirm your password here" required>
-                <input id="formcss" type="checkbox" name="terms_register" value="unchecked" required>I accept the
-                <a id="toa" href="https://termsfeed.com/terms-conditions/063c799df46d17583bb0844688a86cad">Terms of conditions</a>
+                <label class="containerCheckmark"><input class="formcss" type="checkbox" name="terms_register" value="unchecked" required>
+                    <span class="checkmark"></span></label>
+                <span style="margin-left: 100px; color: white;">I accept the<a id="toa" href="https://termsfeed.com/terms-conditions/063c799df46d17583bb0844688a86cad" style="color:#0062ff;">Terms and Conditions</a></span>
                 <input id="submit" type="submit" value="Create your account!">
             </form>
         </div>
