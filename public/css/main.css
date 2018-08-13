@@ -100,10 +100,11 @@ textarea {
         background-image: url(../../pictures/globe.png);
         width: 100%;
         height: 100%;
+        font-family: "Arial Black", Gadget, sans-serif;
     }
     /* INDEX PLAY BUTTON */
-
-    .playButton{
+    
+    .indexdiv {
         text-align: center;
         margin:500px;
         color:#e0e0dc;
@@ -285,6 +286,15 @@ textarea {
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
+
+    .containerLoginSignUp h1 {
+        font-size: 100px;
+        color: white;
+        text-align: center;
+    }
+
+
+    /* HIGHSCORES */
 
 
 
