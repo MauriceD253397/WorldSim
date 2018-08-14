@@ -17,29 +17,24 @@ session_start();
 
 <div class="container">
     <pre>
+
     <?php
 
-        $getHighscoresQuery = "SELECT `name` , `highscore` FROM `tbl_highscores` WHERE `id` <= 10"; // we willen natuurlijk niet alle scores laten zien, alleen de hoeveelheid dat de gebruiker aangeeft.
+        $getHighscoresQuery = "SELECT `name` , `score` FROM `tbl_highscores` WHERE `id` <= 10 ORDER BY `tbl_highscores`.`score` DESC"; // we willen natuurlijk niet alle scores laten zien, alleen de hoeveelheid dat de gebruiker aangeeft.
 
         $Highscores = $database->query($getHighscoresQuery)->fetchAll();
-
-        var_dump($Highscores[0]);
-        var_dump($Highscores);
         ?>
-    </pre>
         <ul>
-        <?
-        foreach($Highscores as $scores)       // nu laten we voor iedere
-        {
-            var_dump($scores);
-        ?>
+        <?php
+        foreach($Highscores as $score) {
+            ?>
 
-            <li></li>
-         <?php
+            <li><?php echo $score["name"] ?></li>
+           <?php
         }
         ?>
         </ul>
+    </pre>
 </div>
-
 </body>
 </html>
