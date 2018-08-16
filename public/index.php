@@ -20,7 +20,6 @@
 
 <body>
         <div class="container">
-            <a href="highscrores.php">CLICK HERE</a>
         <?php
 
             if (isset($_SESSION['login']))

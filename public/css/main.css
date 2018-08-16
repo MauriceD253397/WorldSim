@@ -163,7 +163,20 @@ textarea {
         padding-left:216px;
         color: #e0e0dc;
     }
-
+    /* HIGHSCORES */
+    .container ol {
+        color:#7d007d;
+        background-color:#FFFBCC;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        width:200px;
+        margin-top:100px;
+        margin-left:1000px;
+    }
+    .container ol li .score{
+        padding-right:5px;
+    }
 
 /* ==========================================================================
    Helper classes

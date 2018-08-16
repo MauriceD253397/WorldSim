@@ -2,7 +2,10 @@
 require('../app/config/DatabaseConnector.php');
 session_start();
 
+    $getHighscoresQuery = "SELECT `score` , `name` FROM `tbl_highscores` WHERE `id` <= 10 ORDER BY `tbl_highscores`.`score` DESC"; // we willen natuurlijk niet alle scores laten zien, alleen de hoeveelheid dat de gebruiker aangeeft.
 
+    $Highscores = $database->query($getHighscoresQuery)->fetchAll();
+    $scoreString= " score:  ";
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,29 +15,23 @@ session_start();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
 </head>
 <body>
 
 <div class="container">
-    <pre>
-
-    <?php
-
-        $getHighscoresQuery = "SELECT `name` , `score` FROM `tbl_highscores` WHERE `id` <= 10 ORDER BY `tbl_highscores`.`score` DESC"; // we willen natuurlijk niet alle scores laten zien, alleen de hoeveelheid dat de gebruiker aangeeft.
-
-        $Highscores = $database->query($getHighscoresQuery)->fetchAll();
-        ?>
-        <ul>
-        <?php
-        foreach($Highscores as $score) {
+        <ol>
+            <?php
+            foreach($Highscores as $score) {
             ?>
+            <li> <div class="score"><?php echo $score["name"].$scoreString.$score["score"]?></li>
+            <?php
+            }
+            ?>
+        </ol>
 
-            <li><?php echo $score["name"] ?></li>
-           <?php
-        }
-        ?>
-        </ul>
-    </pre>
 </div>
 </body>
 </html>
