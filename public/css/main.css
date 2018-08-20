@@ -95,13 +95,14 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-    body{
+    body {
         background-image: url(../../pictures/globe.png);
         width: 100%;
         height: 100%;
         font-family: "Arial Black", Gadget, sans-serif;
     }
-    /* INDEX PLAY BUTTON */
+
+    /* INDEX */
     
     .indexdiv {
         font-family: "Arial Black", Gadget, sans-serif;
@@ -231,19 +232,18 @@ textarea {
       background-color: #fff;
       color: #666;
     }
+
     /* HIGHSCORES */
+
     .container ol {
-        color:#7d007d;
-        background-color:#FFFBCC;
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-        width:200px;
-        margin-top:100px;
-        margin-left:1000px;
+        list-style-type: none;
+        counter-reset: level1;
+        margin-left: 0;
     }
-    .container ol li .score{
-        padding-right:5px;
+
+    .container ol .all_scores {
+      display: grid;
+      grid-row-gap: 20px;
     }
 
     #submit:focus {
@@ -336,6 +336,20 @@ textarea {
 
 
 
+
+    .container ol .all_scores li {
+      background-color: cyan;
+    }
+
+    .container ol .all_scores li .score {
+      margin-left: 25px;
+    }
+
+    .container ol li:before {
+      float: left;
+      content: counter(level1) ""; /*Instead of ". " */
+      counter-increment: level1;
+    }
 
 /* ==========================================================================
    Helper classes

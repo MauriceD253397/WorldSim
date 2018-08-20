@@ -23,13 +23,15 @@ $scoreString= " score:  ";
 
 <div class="container">
     <ol>
+      <div class="all_scores">
         <?php
         foreach($Highscores as $score) {
             ?>
-            <li> <div class="score"><?php echo $score["name"].$scoreString.$score["score"]?></li>
+            <li> <div class="score"> <?php echo $score["name"].$scoreString.$score["score"]?></div></li>
             <?php
         }
         ?>
+      </div>
     </ol>
 
 </div>
