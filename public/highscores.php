@@ -25,12 +25,30 @@ $scoreString= " score:  ";
     <ol>
       <div class="all_scores">
         <?php
-        foreach($Highscores as $score) {
-            ?>
-            <li> <div class="score"><?php echo $score["username"].$scoreString.$score["score"]?></div></li>
-            <?php
+        foreach($Highscores as $score)
+        {
+          ?>
+          <li> <div class="score"><?php echo $score["username"].$scoreString.$score["score"]?></div></li>
+          <?php
         }
-        ?>
+          if (isset($_SESSION['login']))
+          {
+            $user_login = $_SESSION['login'];
+            $getUserScore = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` WHERE `tbl_login`.`username` = `$user_login`";
+            $userHighscore = $database->query($getUserScore)->fetchAll();
+            echo $getUserScore["username"].$scoreString.$getUserScore["score"];
+              ?>
+
+
+
+              <?php
+          }
+          else{
+              ?>
+              <?php
+          }
+          ?>
+
       </div>
     </ol>
 
