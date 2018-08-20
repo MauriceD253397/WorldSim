@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 18 aug 2018 om 12:27
--- Serverversie: 10.1.34-MariaDB
--- PHP-versie: 5.6.37
+-- Gegenereerd op: 20 aug 2018 om 08:55
+-- Serverversie: 10.1.31-MariaDB
+-- PHP-versie: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,12 +39,19 @@ CREATE TABLE `tbl_highscores` (
 --
 
 INSERT INTO `tbl_highscores` (`id`, `score`, `name`) VALUES
-(1, 10, 'name10'),
-(2, 9, 'name9'),
-(3, 10, 'name10'),
-(4, 9, 'name9'),
-(5, 10, 'name10'),
-(6, 9, 'name9');
+(1, 5, 'name7'),
+(2, 3, 'name6'),
+(3, 9, 'name1'),
+(4, 11, 'name2'),
+(5, 2, 'name10'),
+(6, 0, 'name9'),
+(7, 2, 'name5'),
+(8, 3, 'name12'),
+(9, 12, 'name21'),
+(10, 5, 'name13'),
+(11, 1, 'name19'),
+(12, 24, 'name54'),
+(13, 23, 'name23');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -64,7 +71,7 @@ ALTER TABLE `tbl_highscores`
 -- AUTO_INCREMENT voor een tabel `tbl_highscores`
 --
 ALTER TABLE `tbl_highscores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
