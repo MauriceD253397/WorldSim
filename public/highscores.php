@@ -24,41 +24,43 @@ $scoreString= " score:  ";
 </head>
 <body>
 
-<div class="container">
-    <ol>
-      <div class="all_scores">
-        <?php
-        foreach($Highscores as $score)
+<div class="highscoresdiv">
+  <div></div>
+  <ol>
+    <div class="all_scores">
+    <?php
+      foreach($Highscores as $score)
+      {
+    ?>
+    <li> <div class="score"><?php if ((isset($_SESSION['login'])) && ($user_login == $score["username"])) { ?> YOU <?php }?> <?php echo $score["username"].$scoreString.$score["score"]?></div></li>
+    <?php
+      }
+      ?>
+    </div><?php
+      if (isset($_SESSION['login']))
+      {
+        $getUserPosition = "SELECT COUNT(*) AS `user_position` FROM `tbl_login` WHERE `score` >= (SELECT `score` FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login');";
+        $getUserScore = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login';";
+        $userPosition = $database->query($getUserPosition)->fetchAll();
+        $userHighscore = $database->query($getUserScore)->fetchAll();
+        foreach($userHighscore as $uscore)
         {
-          ?>
-          <li> <div class="score"><?php if ((isset($_SESSION['login'])) && ($user_login == $score["username"])) { ?> YOU <?php }?> <?php echo $score["username"].$scoreString.$score["score"]?></div></li>
-          <?php
-        }
-          if (isset($_SESSION['login']))
-          {
-            $getUserPosition = "SELECT COUNT(*) AS `user_position` FROM `tbl_login` WHERE `score` >= (SELECT `score` FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login');";
-            $getUserScore = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login';";
-            $userPosition = $database->query($getUserPosition)->fetchAll();
-            $userHighscore = $database->query($getUserScore)->fetchAll();
-            foreach($userHighscore as $uscore)
+            foreach($userPosition as $upos)
             {
-              foreach($userPosition as $upos)
-              {
-                echo $upos["user_position"].$uscore["username"].$scoreString.$uscore["score"];
-              }
+              echo $upos["user_position"].$uscore["username"].$scoreString.$uscore["score"];
             }
-              ?>
-              <?php
           }
-          else{
-              ?>
-              You're not logged in! Log in to see your own highscore!
-              <?php
-          }
-          ?>
-
-      </div>
+            ?>
+            <?php
+        }
+        else{
+            ?>
+            You're not logged in! Log in to see your own highscore!
+            <?php
+        }
+        ?>
     </ol>
+    <div></div>
 
 </div>
 </body>

@@ -324,38 +324,45 @@ textarea {
 
     /* HIGHSCORES */
 
-    .container ol {
-        list-style-type: none;
-        counter-reset: level1;
-        margin-left: 0;
+    .highscoresdiv {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      grid-template-columns: 1fr 750px 1fr;
     }
 
-    .container ol .all_scores {
+    .highscoresdiv ol {
+      list-style-type: none;
+      counter-reset: level1;
+      margin-left: 0;
+    }
+
+    .highscoresdiv ol .all_scores {
       display: grid;
       grid-row-gap: 20px;
     }
 
-    .container ol .all_scores li {
+    .highscoresdiv ol .all_scores li {
       background-color: white;
     }
 
-    .container ol .all_scores li:first-child {
+    .highscoresdiv ol .all_scores li:first-child {
       background-color:	#FFD700;
     }
 
-    .container ol .all_scores li:nth-child(2) {
+    .highscoresdiv ol .all_scores li:nth-child(2) {
       background-color: #C0C0C0;
     }
 
-    .container ol .all_scores li:nth-child(3) {
+    .highscoresdiv ol .all_scores li:nth-child(3) {
       background-color: #CC6633;
     }
 
-    .container ol .all_scores li .score {
+    .highscoresdiv ol .all_scores li .score {
       margin-left: 25px;
     }
 
-    .container ol li:before {
+    .highscoresdiv ol .all_scores li:before {
       float: left;
       content: counter(level1) ""; /*Instead of ". " */
       counter-increment: level1;
