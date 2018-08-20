@@ -103,7 +103,7 @@ textarea {
         font-family: "Arial Black", Gadget, sans-serif;
     }
     /* INDEX PLAY BUTTON */
-    
+
     .indexdiv {
         text-align: center;
         margin:500px;
@@ -123,7 +123,7 @@ textarea {
     }
 
     /* REGISTER */
-    
+
     .containerLoginSignUp {
         width: 35%;
         margin: 50px auto;
@@ -288,11 +288,14 @@ textarea {
     }
 
     .containerLoginSignUp h1 {
-        font-size: 100px;
-        color: white;
-        text-align: center;
+      font-size: 100px;
+      text-align: center;
     }
 
+    .containerLoginSignUp h1 a {
+      color: white;
+      text-decoration: none;
+    }
 
     /* HIGHSCORES */
 
