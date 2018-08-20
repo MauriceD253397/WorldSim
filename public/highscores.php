@@ -1,7 +1,10 @@
 <?php
 require('../app/config/DatabaseConnector.php');
 session_start();
-
+  if (isset($_SESSION['login']))
+  {
+    $user_login = $_SESSION['login'];
+  }
 $getHighscoresQuery = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` ORDER BY `tbl_login`.`score` DESC, `tbl_login`.`id` ASC LIMIT 10"; // we willen natuurlijk niet alle scores laten zien, alleen de hoeveelheid dat de gebruiker aangeeft.
 
 $Highscores = $database->query($getHighscoresQuery)->fetchAll();
@@ -28,12 +31,11 @@ $scoreString= " score:  ";
         foreach($Highscores as $score)
         {
           ?>
-          <li> <div class="score"><?php echo $score["username"].$scoreString.$score["score"]?></div></li>
+          <li> <div class="score"><?php if ((isset($_SESSION['login'])) && ($user_login == $score["username"])) { ?> YOU <?php }?> <?php echo $score["username"].$scoreString.$score["score"]?></div></li>
           <?php
         }
           if (isset($_SESSION['login']))
           {
-            $user_login = $_SESSION['login'];
             $getUserScore = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login'";
             $userHighscore = $database->query($getUserScore)->fetchAll();
             foreach($userHighscore as $uscore)
@@ -41,13 +43,11 @@ $scoreString= " score:  ";
             echo $uscore["username"].$scoreString.$uscore["score"];
           }
               ?>
-
-
-
               <?php
           }
           else{
               ?>
+              You're not logged in! Log in to see your own highscore!
               <?php
           }
           ?>
