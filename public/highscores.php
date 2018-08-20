@@ -34,9 +34,12 @@ $scoreString= " score:  ";
           if (isset($_SESSION['login']))
           {
             $user_login = $_SESSION['login'];
-            $getUserScore = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` WHERE `tbl_login`.`username` = `$user_login`";
+            $getUserScore = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login'";
             $userHighscore = $database->query($getUserScore)->fetchAll();
-            echo $getUserScore["username"].$scoreString.$getUserScore["score"];
+            foreach($userHighscore as $uscore)
+            {
+            echo $uscore["username"].$scoreString.$uscore["score"];
+          }
               ?>
 
 
