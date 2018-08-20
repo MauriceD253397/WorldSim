@@ -214,7 +214,19 @@ textarea {
     }
 
     .container ol .all_scores li {
-      background-color: cyan;
+      background-color: white;
+    }
+
+    .container ol .all_scores li:first-child {
+      background-color:	#FFD700;
+    }
+
+    .container ol .all_scores li:nth-child(2) {
+      background-color: #C0C0C0;
+    }
+
+    .container ol .all_scores li:nth-child(3) {
+      background-color: #CC6633;
     }
 
     .container ol .all_scores li .score {
