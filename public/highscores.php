@@ -36,12 +36,17 @@ $scoreString= " score:  ";
         }
           if (isset($_SESSION['login']))
           {
-            $getUserScore = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login'";
+            $getUserPosition = "SELECT COUNT(*) AS `user_position` FROM `tbl_login` WHERE `score` >= (SELECT `score` FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login');";
+            $getUserScore = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login';";
+            $userPosition = $database->query($getUserPosition)->fetchAll();
             $userHighscore = $database->query($getUserScore)->fetchAll();
             foreach($userHighscore as $uscore)
             {
-            echo $uscore["username"].$scoreString.$uscore["score"];
-          }
+              foreach($userPosition as $upos)
+              {
+                echo $upos["user_position"].$uscore["username"].$scoreString.$uscore["score"];
+              }
+            }
               ?>
               <?php
           }
