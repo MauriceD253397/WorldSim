@@ -2,7 +2,7 @@
 require('../app/config/DatabaseConnector.php');
 session_start();
 
-$getHighscoresQuery = "SELECT `score` , `name` FROM `tbl_highscores` WHERE `id` <= 10 ORDER BY `tbl_highscores`.`score` DESC"; // we willen natuurlijk niet alle scores laten zien, alleen de hoeveelheid dat de gebruiker aangeeft.
+$getHighscoresQuery = "SELECT `score` , `name` FROM `tbl_highscores` ORDER BY `tbl_highscores`.`score` DESC, `tbl_highscores`.`name` DESC LIMIT 10"; // we willen natuurlijk niet alle scores laten zien, alleen de hoeveelheid dat de gebruiker aangeeft.
 
 $Highscores = $database->query($getHighscoresQuery)->fetchAll();
 $scoreString= " score:  ";
