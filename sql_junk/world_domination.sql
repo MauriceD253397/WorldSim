@@ -32,47 +32,17 @@ CREATE TABLE `tbl_login` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL
+  `email` varchar(255) NOT NULL,
+  `score` int(11) DEFAULT 0,
+  `mana` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Gegevens worden geëxporteerd voor tabel `tbl_login`
---
-
-INSERT INTO `tbl_login` (`id`, `username`, `password`, `email`) VALUES
-(1, 'testbro', 'testingbro', 'testerinobro'),
-(2, 'testbro', 'testingbro', 'testerinobro'),
-(3, 'testuser', 'testpass', 'testemail'),
-(4, 'testuser', 'testpass', 'testemail'),
-(5, 'testerahe1herh', 'Password1', 'mauricederidder@outlook.com'),
-(6, 'ThisisatestaccountFD', 'cb5aff3e248e01a2d6bc0a6974719c63', 'mauricederidder@outlook.comfdd');
 
 -- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `tbl_savedgames`
---
-
-CREATE TABLE `tbl_savedgames` (
-  `id` int(11) NOT NULL,
-  `gamename` int(11) NOT NULL,
-  `saved_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Indexen voor geëxporteerde tabellen
---
 
 --
 -- Indexen voor tabel `tbl_login`
 --
 ALTER TABLE `tbl_login`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexen voor tabel `tbl_savedgames`
---
-ALTER TABLE `tbl_savedgames`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -83,14 +53,7 @@ ALTER TABLE `tbl_savedgames`
 -- AUTO_INCREMENT voor een tabel `tbl_login`
 --
 ALTER TABLE `tbl_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT voor een tabel `tbl_savedgames`
---
-ALTER TABLE `tbl_savedgames`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
