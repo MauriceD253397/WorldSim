@@ -22,10 +22,9 @@ else{
     ?>
 
     <script type='text/javascript'>
-        setTimeout(function () {
-            alert('Please make sure your login name is longer than 3 letters');
+        setTimeout(function () { // username too short
             window.location.replace("../public/login.php");
-        },300);</script>
+        },0);</script>
 
     <?php
 }
@@ -57,10 +56,9 @@ else{
     ?>
 
     <script type='text/javascript'>
-        setTimeout(function () {
-            alert('Your username already exists');
+        setTimeout(function () { // username already exists
             window.location.replace("../public/login.php");
-        },300);</script>
+        },0);</script>
 
     <?php
 }
@@ -74,10 +72,9 @@ else{
     ?>
 
     <script type='text/javascript'>
-        setTimeout(function () {
-            alert('Make suer your password is longer');
+        setTimeout(function () { // password too short
             window.location.replace("../public/login.php");
-        },300);</script>
+        },0);</script>
 
     <?php
 }
@@ -93,10 +90,9 @@ else {
     ?>
 
     <script type='text/javascript'>
-        setTimeout(function () {
-            alert('Please make sure your password contains a number');
+        setTimeout(function () { // password doesn't contain a number
             window.location.replace("../public/login.php");
-        }, 300);</script>
+        }, 0);</script>
 
     <?php
 }
@@ -110,10 +106,9 @@ else{
     ?>
 
     <script type='text/javascript'>
-        setTimeout(function () {
-            alert('Please make sure your password contains a capital letter');
+        setTimeout(function () { // password doesn't contain a captial letter
             window.location.replace("../public/login.php");
-        },300);</script>
+        },0);</script>
 
     <?php
 }
@@ -150,4 +145,3 @@ if ($userLength  == true && $userExist == true && $passLength == true && $passCa
 }
 // we hoeven nu geen else te maken omdat we al een else bij alle andere fouten hebben gedaan.
 ?>
-
