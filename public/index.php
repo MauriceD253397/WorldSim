@@ -26,38 +26,38 @@
             {
                 ?>
                 <div class="indexdiv">
-                    
+
                     <div></div>
-                    
+
                     <div class="indexmid">
-                        
+
                         <div></div>
-                        
+
                         <h1>WorldSim</h1>
-                        
+
                         <div></div>
-                        
+
                         <div class="buttons">
-                            
-                            
-                            <a href="gamePage.php">
+
+
+                            <a href="savegames.php">
                                 <div>PLAY</div>
                             </a>
-                            
+
                             <a href="highscores.php">
                                 <div>HIGHSCORES</div>
                             </a>
-                            
+
                             <a href="../app/SignOutHandler.php">
                                 <div>SIGN OUT</div>
                             </a>
-                            
+
                         </div>
-                        
+
                     </div>
-                    
+
                     <div></div>
-                    
+
                 </div>
                 <?php
 
@@ -66,37 +66,37 @@
 
                 ?>
                 <div class="indexdiv">
-                    
+
                     <div></div>
-                    
+
                     <div class="indexmid">
-                        
+
                         <div></div>
-                        
+
                         <h1>WorldSim</h1>
-                        
+
                         <div></div>
-                        
+
                         <div class="buttons">
-                            
+
                             <div class="unavailableButton">
                                 <div>PLAY</div>
                             </div>
-                            
+
                             <a href="highscores.php">
                                 <div>HIGHSCORES</div>
                             </a>
-                            
+
                             <a href="login.php">
                                 <div>LOG IN</div>
                             </a>
-                            
+
                         </div>
-                        
+
                     </div>
-                    
+
                     <div></div>
-                    
+
                 </div>
                 <?php
             }
