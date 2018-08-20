@@ -313,9 +313,13 @@ textarea {
     }
 
     .containerLoginSignUp h1 {
-        font-size: 100px;
-        color: white;
-        text-align: center;
+      font-size: 100px;
+      text-align: center;
+    }
+
+    .containerLoginSignUp h1 a {
+      color: white;
+      text-decoration: none;
     }
 
     /* HIGHSCORES */

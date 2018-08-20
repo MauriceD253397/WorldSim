@@ -63,7 +63,7 @@
               <li>Make sure you enter a valid e-mail.</li>
           </ul>
       </div>-->
-      <h1>WorldSim</h1>
+      <h1><a href="index.php">WorldSim</a></h1>
       <div class="loginSignUpButtons">
           <a href="#" class="loginTab activeTab">Login</a>
           <a href="#" class="signUpTab">Sign Up</a>
