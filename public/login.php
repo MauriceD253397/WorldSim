@@ -1,4 +1,6 @@
 <!doctype html>
+<?php session_start(); ?>
+
 <html class="no-js" lang="">
 
 <head>
@@ -34,8 +36,12 @@
 </head>
 
 <body>
+  <?php
+    if (isset($_SESSION['login']))
+    {
+        ?>
     <div class="containerLoginSignUp">
-        
+
         <!--<div class="registerTerms">
             <ul>
                 <li>Make sure you follow your username is at least 3 characters long.</li>
@@ -77,6 +83,24 @@
     <script src="js/main.js"></script>
 
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+  <?php
+
+    }
+    else{
+
+  ?>
+
+  <script type='text/javascript'>
+      setTimeout(function () {
+          window.location.replace("../public/index.php");
+      },0);
+  </script>
+
+  <?php
+    }
+   ?>
+   
 </body>
 
 </html>
