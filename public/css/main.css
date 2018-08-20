@@ -203,16 +203,28 @@ textarea {
     /* HIGHSCORES */
 
     .container ol {
-        background-color:#FFFBCC;
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-        width:200px;
-        margin-top:100px;
-        margin-left:1000px;
+        list-style-type: none;
+        counter-reset: level1;
+        margin-left: 0;
     }
-    .container ol li .score{
-        padding-right:5px;
+
+    .container ol .all_scores {
+      display: grid;
+      grid-row-gap: 20px;
+    }
+
+    .container ol .all_scores li {
+      background-color: cyan;
+    }
+
+    .container ol .all_scores li .score {
+      margin-left: 25px;
+    }
+
+    .container ol li:before {
+      float: left;
+      content: counter(level1) ""; /*Instead of ". " */
+      counter-increment: level1;
     }
 
 /* ==========================================================================
