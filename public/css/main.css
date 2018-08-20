@@ -96,10 +96,32 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-    body{
+    body {
         background-image: url(../../pictures/globe.png);
         width: 100%;
         height: 100%;
+<<<<<<< Updated upstream
+=======
+        font-family: "Arial Black", Gadget, sans-serif;
+    }
+
+    /* INDEX */
+
+    .indexdiv {
+        font-family: "Arial Black", Gadget, sans-serif;
+        text-align: center;
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 1fr 500px 1fr;
+    }
+
+    .indexmid {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-rows: 100px 1fr 150px 1fr;
+>>>>>>> Stashed changes
     }
     .container{
 
@@ -115,6 +137,7 @@ textarea {
     .playButton a{
         text-decoration: none;
         font-size: 40px;
+<<<<<<< Updated upstream
         color: #e0e0dc;
         padding-right: 100px;
     }
@@ -125,6 +148,19 @@ textarea {
     }
 
     /* REGISTER */
+=======
+        color: black;
+
+    }
+
+    /* REGISTER */
+
+    .containerLoginSignUp {
+        width: 35%;
+        margin: 50px auto;
+        margin-top: 200px;
+    }
+>>>>>>> Stashed changes
 
     .registerAndLoginContainer .register{
         color: #e0e0dc;
@@ -163,9 +199,10 @@ textarea {
         padding-left:216px;
         color: #e0e0dc;
     }
+
     /* HIGHSCORES */
+
     .container ol {
-        color:#7d007d;
         background-color:#FFFBCC;
         display: flex;
         justify-content: space-around;
