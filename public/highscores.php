@@ -2,7 +2,7 @@
 require('../app/config/DatabaseConnector.php');
 session_start();
 
-$getHighscoresQuery = "SELECT `score` , `name` FROM `tbl_highscores` ORDER BY `tbl_highscores`.`score` DESC, `tbl_highscores`.`name` DESC LIMIT 10"; // we willen natuurlijk niet alle scores laten zien, alleen de hoeveelheid dat de gebruiker aangeeft.
+$getHighscoresQuery = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` ORDER BY `tbl_login`.`score` DESC, `tbl_login`.`id` ASC LIMIT 10"; // we willen natuurlijk niet alle scores laten zien, alleen de hoeveelheid dat de gebruiker aangeeft.
 
 $Highscores = $database->query($getHighscoresQuery)->fetchAll();
 $scoreString= " score:  ";
@@ -25,12 +25,30 @@ $scoreString= " score:  ";
     <ol>
       <div class="all_scores">
         <?php
-        foreach($Highscores as $score) {
-            ?>
-            <li> <div class="score"> <?php echo $score["name"].$scoreString.$score["score"]?></div></li>
-            <?php
+        foreach($Highscores as $score)
+        {
+          ?>
+          <li> <div class="score"><?php echo $score["username"].$scoreString.$score["score"]?></div></li>
+          <?php
         }
-        ?>
+          if (isset($_SESSION['login']))
+          {
+            $user_login = $_SESSION['login'];
+            $getUserScore = "SELECT `tbl_login`.`score` , `tbl_login`.`username` FROM `tbl_login` WHERE `tbl_login`.`username` = `$user_login`";
+            $userHighscore = $database->query($getUserScore)->fetchAll();
+            echo $getUserScore["username"].$scoreString.$getUserScore["score"];
+              ?>
+
+
+
+              <?php
+          }
+          else{
+              ?>
+              <?php
+          }
+          ?>
+
       </div>
     </ol>
 
