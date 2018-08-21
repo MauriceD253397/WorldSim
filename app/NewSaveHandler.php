@@ -57,11 +57,9 @@ if (($countedSaves < 3) && ($saveNameLength == true) && ($save_nameNotExist == t
     $userIDNumber = $uid["id"];
   $inputSaveQuery = "INSERT INTO `tbl_savegames` (`game_id`, `user_id`, `game_name`, `population`, `mana`) VALUES (NULL, '$userIDNumber', '$save_name', 0, 0);";
 }
-
   $database->query($inputSaveQuery);
-
-  session_start();
-  $_SESSION['game'] = $game_id;
+  $new_game_id = $database->lastInsertId();
+    $_SESSION['game'] = $new_game_id;
   ?>
   <script type='text/javascript'>
       setTimeout(function () {
