@@ -20,10 +20,12 @@ if (isset($_SESSION['login']))
     <?php
   }
   else
+  {
   <script type='text/javascript'>
       setTimeout(function () {
           window.location.replace("../public/savegames.php");
       },0);</script>
+    }
 }
 else
 <script type='text/javascript'>
