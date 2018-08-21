@@ -36,10 +36,9 @@ session_start(); ?>
     $countedSaves = count($existingSaves);
     if ($countedSaves >= 1)
     { ?>
-    <form action="load_save.php" method="post">
+    <form action="../app/load_save.php" method="post">
       <?php foreach($existingSaves as $saves) { ?>
-      <div></div>
-      <input type="radio" name="save" value="<?php echo $saves["game_id"]?>">
+      <input type="radio" name="save_id" value="<?php echo $saves["game_id"]?>">
     <?php } ?>
       <input type="submit" name="load_game" value="Load Save">
       <input type="submit" name="delete_game" value="Delete Save">
