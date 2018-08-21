@@ -1,3 +1,5 @@
+<!doctype html>
+<html class="no-js" lang="">
 <?php
 require('../app/config/DatabaseConnector.php');
 session_start();
@@ -29,8 +31,11 @@ if (isset($_SESSION['login']))
     }
 }
 else
+{?>
 <script type='text/javascript'>
     setTimeout(function () {
         window.location.replace("../public/login.php");
     },0);</script>
-?>
+    <?php
+}?>
+</html>
