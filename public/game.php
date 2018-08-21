@@ -8,11 +8,12 @@ if (isset($_SESSION['login']))
   if (isset($_SESSION['game']))
   {
     $game = $_SESSION['game'];
-    $getGameID = "SELECT `tbl_savegames`.`game_id` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game ORDER BY `tbl_savegames`.`game_id` ASC";
-    $game_id = $database->query($getGameID)->fetchAll();
-    foreach ($game_id as $gID) {
-      // ...
+    $getGameName = "SELECT `tbl_savegames`.`game_name` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game";
+    $game_name = $database->query($getGameName)->fetchAll();
+    foreach ($game_name as $gName) {
+      echo $gName["game_name"];
     }
+
     ?>
 
     // the game
