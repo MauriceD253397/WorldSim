@@ -42,6 +42,7 @@ session_start(); ?>
       <input type="radio" name="save">
     <?php } ?>
       <input type="submit" name="load_game" value="Load Save">
+      <input type="submit" name="delete_game" value="Delete Save">
     </form>
     <?php }
     if ($countedSaves < 3)
