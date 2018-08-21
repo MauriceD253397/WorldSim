@@ -5,8 +5,6 @@ require('config/DatabaseConnector.php');
 $saveNameLength = false;
 $save_nameNotExist = false;
 
-$save_name = $_POST['save_name'];
-
 if(strlen($save_name) >= 3) { //strlen is functie voor grootte van string.
     $saveNameLength = true;
 }

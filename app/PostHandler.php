@@ -17,6 +17,11 @@
             $pass_register = $_POST['pass_register'];
             $terms_register = $_POST['terms_register'];
         }
+
+        // new save
+        if (isset($_POST['save_name'])) {
+            $save_name = $_POST['save_name'];
+        }
 }
 
 ?>
