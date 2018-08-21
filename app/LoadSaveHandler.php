@@ -14,7 +14,8 @@ $existingSaves = $database->query($getExistingSaves)->fetchAll();
 $countedSaves = count($existingSaves);
 if ($countedSaves == 1)
 {
-
+  if ($select_game == "Load Save")
+  {
   session_start();
   $_SESSION['game'] = $game_id;
   ?>
@@ -23,4 +24,16 @@ if ($countedSaves == 1)
           window.location.replace("../public/game.php");
       },0);</script>
   <?php
+  }
+  else if ($select_game == "Delete Save")
+  {
+    $deleteChosenSave = "DELETE FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id;";
+    $deleteSave = $database->query($deleteChosenSave);
+    ?>
+    <script type='text/javascript'>
+        setTimeout(function () {
+            window.location.replace("../public/savegames.php");
+        },0);</script>
+    <?php
+  }
 }

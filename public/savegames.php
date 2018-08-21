@@ -40,8 +40,8 @@ session_start(); ?>
       <?php foreach($existingSaves as $saves) { ?>
       <input type="radio" name="save_id" value="<?php echo $saves["game_id"]?>">
     <?php } ?>
-      <input type="submit" name="load_game" value="Load Save">
-      <input type="submit" name="delete_game" value="Delete Save">
+      <input type="submit" name="submit" value="Load Save">
+      <input type="submit" name="submit" value="Delete Save">
     </form>
     <?php }
     if ($countedSaves < 3)

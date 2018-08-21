@@ -24,8 +24,9 @@
         }
 
         // load save
-        if (isset($_POST['save_id'])) {
+        if ((isset($_POST['save_id'])) && (isset($_POST['submit']))) {
             $game_id = $_POST['save_id'];
+            $select_game = $_POST['submit'];
         }
 }
 
