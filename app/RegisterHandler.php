@@ -9,11 +9,6 @@ $passCapital = false;
 $passNumber = false;
 $passEqual = false;
 
-$user_register = $_POST['user_register'];
-$email_register = $_POST['email_register'];
-$pass_register = $_POST['pass_register'];
-$confirm_pass_register = $_POST['confirm_pass_register'];
-
 $hashedPass = md5($pass_register);
 
 if(strlen($user_register) >= 3) { //strlen is functie voor grootte van string.
@@ -152,7 +147,7 @@ var_dump($passEqual);
 if ($userLength  == true && $userExist == true && $passLength == true && $passCapital == true && $passNumber == true && $passEqual == true) {
 
     inputAccountData($user_register,$hashedPass,$email_register,$database);
-    
+
     session_start();
     $_SESSION['login'] = $user_register;
     ?>

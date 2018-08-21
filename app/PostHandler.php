@@ -11,10 +11,11 @@
         }
 
         // register
-        if (isset($_POST['user_register']) && isset($_POST['email_register']) && isset($_POST['pass_register']) && isset($_POST['terms_register'])) {
+        if (isset($_POST['user_register']) && isset($_POST['email_register']) && isset($_POST['pass_register']) && isset($_POST['confirm_pass_register']) && isset($_POST['terms_register'])) {
             $user_register = $_POST['user_register'];
             $email_register = $_POST['email_register'];
             $pass_register = $_POST['pass_register'];
+            $confirm_pass_register = $_POST['confirm_pass_register'];
             $terms_register = $_POST['terms_register'];
         }
 
