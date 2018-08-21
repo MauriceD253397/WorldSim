@@ -1,5 +1,7 @@
 <!doctype html>
-<?php session_start(); ?>
+<?php
+require('../app/config/DatabaseConnector.php');
+session_start(); ?>
 
 <html class="no-js" lang="">
 
@@ -19,22 +21,50 @@
 </head>
 
 <body>
+
   <?php
   if (isset($_SESSION['login']))
   {
-      ?>
+    $user_login = $_SESSION['login'];
+    $getUserID = "SELECT * FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login'";
+    $user_id = $database->query($getUserID)->fetchAll();
+    foreach ($user_id as $uid) {
+      $userIDNumber = $uid["id"];
+      $getExistingSaves = "SELECT `tbl_savegames`.`game_id` FROM `tbl_savegames` WHERE `tbl_savegames`.`user_id` = $userIDNumber ORDER BY `tbl_savegames`.`game_id` ASC";
+    }
+    $existingSaves = $database->query($getExistingSaves)->fetchAll();
+    $countedSaves = count($existingSaves);
+    if ($countedSaves >= 1)
+    { ?>
+    <form action="load_save.php" method="post">
+      <?php foreach($existingSaves as $saves) { ?>
+      <div><?php echo "save";?></div>
+      <input type="radio" name="save">
+    <?php } ?>
+      <input type="submit" name="load_game" value="Load Save">
+    </form>
+    <?php }
+    if ($countedSaves < 3)
+    { ?>
+      <form action="../app/create_new_save.php" method="post">
+        <input type="text" name="save_name">
+        <input type="submit" name="new_save" value="Create New Save">
+      </form>
+    <?php } ?>
 
-<?php
 
+    <?php
   }
-  else{
-
+  else
+  {
 ?>
+
 <script type='text/javascript'>
     setTimeout(function () {
         window.location.replace("../public/login.php");
     },0);
 </script>
+
 <?php } ?>
 </div>
 <script src="js/vendor/modernizr-3.6.0.min.js"></script>
