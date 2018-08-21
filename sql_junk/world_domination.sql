@@ -29,31 +29,26 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_login` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `score` int(11) DEFAULT 0,
-  `mana` int(11) DEFAULT 0
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Indexen voor tabel `tbl_login`
---
-ALTER TABLE `tbl_login`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- Tabelstructuur voor tabel `tbl_savegames`
 --
 
---
--- AUTO_INCREMENT voor een tabel `tbl_login`
---
-ALTER TABLE `tbl_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+CREATE TABLE `tbl_savegames` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `population` int(11) NOT NULL DEFAULT 0,
+  `mana` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
