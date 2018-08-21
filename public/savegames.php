@@ -1,5 +1,9 @@
 <!doctype html>
-<?php session_start(); ?>
+<?php session_start();
+  if (isset($_SESSION['login']))
+  {
+    $user_login = $_SESSION['login'];
+  } ?>
 
 <html class="no-js" lang="">
 
@@ -19,22 +23,25 @@
 </head>
 
 <body>
+
   <?php
   if (isset($_SESSION['login']))
   {
       ?>
 
-<?php
 
+
+<?php
   }
   else{
-
 ?>
+
 <script type='text/javascript'>
     setTimeout(function () {
         window.location.replace("../public/login.php");
     },0);
 </script>
+
 <?php } ?>
 </div>
 <script src="js/vendor/modernizr-3.6.0.min.js"></script>
