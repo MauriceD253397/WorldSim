@@ -23,6 +23,11 @@
         if (isset($_POST['save_name'])) {
             $save_name = $_POST['save_name'];
         }
+
+        // load save
+        if (isset($_POST['save_id'])) {
+            $game_id = $_POST['save_id'];
+        }
 }
 
 ?>
