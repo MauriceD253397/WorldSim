@@ -1,9 +1,7 @@
 <!doctype html>
-<?php session_start();
-  if (isset($_SESSION['login']))
-  {
-    $user_login = $_SESSION['login'];
-  } ?>
+<?php
+require('../app/config/DatabaseConnector.php');
+session_start(); ?>
 
 <html class="no-js" lang="">
 
@@ -27,13 +25,24 @@
   <?php
   if (isset($_SESSION['login']))
   {
+    $user_login = $_SESSION['login'];
+    $getExistingSaves = "SELECT `tbl_savegames`.`game_id` FROM `tbl_savegames` ORDER BY `tbl_savegames`.`game_id` ASC";
+    $existingSaves = $database->query($getExistingSaves)->fetchAll();
+    $countedSaves = count($existingSaves);
+    if ($countedSaves < 3)
+    {
+      // Show NEW SAVE BUTTON
+    }
+    foreach ($existingSaves as $saves) {
       ?>
 
-
+      <div><?php echo $saves;?></div>
 
 <?php
+    }
   }
-  else{
+  else
+  {
 ?>
 
 <script type='text/javascript'>
