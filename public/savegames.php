@@ -36,7 +36,7 @@ session_start(); ?>
     $countedSaves = count($existingSaves);
     if ($countedSaves >= 1)
     { ?>
-    <form action="../app/load_save.php" method="post">
+    <form action="../app/LoadSaveHandler.php" method="post">
       <?php foreach($existingSaves as $saves) { ?>
       <input type="radio" name="save_id" value="<?php echo $saves["game_id"]?>">
     <?php } ?>
@@ -46,7 +46,7 @@ session_start(); ?>
     <?php }
     if ($countedSaves < 3)
     { ?>
-      <form action="../app/create_new_save.php" method="post">
+      <form action="../app/NewSaveHandler.php" method="post">
         <input type="text" name="save_name">
         <input type="submit" name="new_save" value="Create New Save">
       </form>
