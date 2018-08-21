@@ -29,12 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_login` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `score` int(11) DEFAULT 0,
-  PRIMARY KEY (`id`)
+  `score` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -42,11 +41,10 @@ CREATE TABLE `tbl_login` (
 --
 
 CREATE TABLE `tbl_savegames` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user_id` int(11) NOT NULL,
   `population` int(11) NOT NULL DEFAULT 0,
-  `mana` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`)
+  `mana` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
