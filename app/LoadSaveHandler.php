@@ -28,7 +28,7 @@ if ($countedSaves == 1)
   else if ($select_game == "Delete Save")
   {
     $deleteChosenSave = "DELETE FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id;";
-    $deleteSave = $database->query($deleteChosenSave);
+    $database->query($deleteChosenSave);
     ?>
     <script type='text/javascript'>
         setTimeout(function () {
