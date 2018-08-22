@@ -19,13 +19,14 @@ if (isset($_SESSION['login']))
       echo " Population: ".$gStats["population"]." Mana: ".$gStats["mana"];
     }
     $user_id = $_SESSION['game'];
-    $getUserScore = "SELECT `tbl_login`.`score` FROM `tbl_login` WHERE `tbl_login`.`id` = $user_login;";
+    $getUserScore = "SELECT `tbl_login`.`score` FROM `tbl_login` WHERE `tbl_login`.`id` = $user_id;";
     $userScore = $database->query($getUserScore)->fetchAll();
     foreach ($game_stats as $gStats) {
       foreach ($userScore as $uScore) {
         if ($gStats["population"] > $uScore["score"])
         {
-          $setUserScore = "INSERT INTO `tbl_login` (`score`) VALUES (`$gStats["population"]`)";
+          $population = $gStats["population"];
+          $setUserScore = "INSERT INTO `tbl_login` (`score`) VALUES ($population)";
         }
       }
     }
