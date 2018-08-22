@@ -16,7 +16,10 @@ if ($countedSaves == 1)
 {
   if ($select_game == "Load Save")
   {
-  $_SESSION['game'] = $game_id;
+    $input_last_opened = "UPDATE `tbl_savegames` SET `date_last_opened` = CURRENT_TIMESTAMP WHERE `tbl_savegames`.`game_id` = $game_id;";
+    $database->query($input_last_opened);
+    $_SESSION['game'] = $game_id;
+
   ?>
   <script type='text/javascript'>
       setTimeout(function () {

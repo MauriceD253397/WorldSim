@@ -57,7 +57,7 @@ if (isset($_SESSION['login']))
   {
     foreach ($user_id as $uid) {
       $userIDNumber = $uid["id"];
-    $inputSaveQuery = "INSERT INTO `tbl_savegames` (`game_id`, `user_id`, `game_name`, `population`, `mana`) VALUES (NULL, '$userIDNumber', '$save_name', 0, 0);";
+    $inputSaveQuery = "INSERT INTO `tbl_savegames` (`game_id`, `user_id`, `game_name`, `date_created`, `date_last_opened`) VALUES (NULL, '$userIDNumber', '$save_name', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
   }
     $database->query($inputSaveQuery);
     $new_game_id = $database->lastInsertId();
