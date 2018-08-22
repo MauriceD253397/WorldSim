@@ -16,7 +16,6 @@ if ($countedSaves == 1)
 {
   if ($select_game == "Load Save")
   {
-  session_start();
   $_SESSION['game'] = $game_id;
   ?>
   <script type='text/javascript'>
