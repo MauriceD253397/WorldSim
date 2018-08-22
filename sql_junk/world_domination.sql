@@ -63,7 +63,7 @@ CREATE TABLE `tbl_population` (
   `parent_id_f` int(11),
   `strength` int(11) NOT NULL DEFAULT 0,
   `endurance` int(11) NOT NULL DEFAULT 0,
-  `charisma` int(11) NOT NULL DEFAULT 0,
+  `charisma` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
