@@ -5,12 +5,6 @@ session_start(); // session moet gek genoeg ALTIJD gestart worden.
 $_SESSION['game'] = NULL;
 // Nu maken we de session null en vernietigen we de session
 
-// remove all session variables
-session_unset();
-
-// destroy the session
-session_destroy();
-
 ?>
 
 <script type='text/javascript'>
