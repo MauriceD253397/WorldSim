@@ -31,6 +31,11 @@ body {
   font-size: 35px;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .quit_button {
   margin-right: 0px;
   height: 100%;
@@ -39,8 +44,6 @@ body {
   background-color: gray;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
-  color: black;
-  text-decoration: none;
 }
 
 .quit_button span {
