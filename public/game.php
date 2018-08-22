@@ -1,17 +1,38 @@
 <!doctype html>
+<?php session_start();
+require('../app/config/DatabaseConnector.php');?>
+
 <html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+
+<body>
 <?php
-require('../app/config/DatabaseConnector.php');
-session_start();
 if (isset($_SESSION['login']))
 {
   if (isset($_SESSION['game']))
   {
+    ?>
+    <div class="header_bar_game">
+    <?php
     $game_id = $_SESSION['game'];
     $getGameName = "SELECT `tbl_savegames`.`game_name` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
     $game_name = $database->query($getGameName)->fetchAll();
     foreach ($game_name as $gName) {
-      echo $gName["game_name"];
+      ?><div class="header_bar_game_name"><?php echo $gName["game_name"];?></div><?php
     }
 
     $getGameStats = "SELECT `tbl_savegames`.`population`, `tbl_savegames`.`mana` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
@@ -32,9 +53,8 @@ if (isset($_SESSION['login']))
         }
       }
     }
-
     ?>
-
+    </div>
     // the game
 
     <head>
@@ -56,7 +76,7 @@ if (isset($_SESSION['login']))
         <div class="container">
 
             <div class="console">
-                
+
             </div>
 
         </div>
