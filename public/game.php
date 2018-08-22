@@ -18,6 +18,17 @@ if (isset($_SESSION['login']))
     foreach ($game_stats as $gStats) {
       echo " Population: ".$gStats["population"]." Mana: ".$gStats["mana"];
     }
+    $user_id = $_SESSION['game'];
+    $getUserScore = "SELECT `tbl_login`.`score` FROM `tbl_login` WHERE `tbl_login`.`id` = $user_login;";
+    $userScore = $database->query($getUserScore)->fetchAll();
+    foreach ($game_stats as $gStats) {
+      foreach ($userScore as $uScore) {
+        if ($gStats["population"] > $uScore["score"])
+        {
+          $setUserScore = "INSERT INTO `tbl_login` (`score`) VALUES (`$gStats["population"]`)";
+        }
+      }
+    }
 
     ?>
 
