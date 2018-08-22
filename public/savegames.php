@@ -31,7 +31,7 @@ session_start();
     $user_id = $database->query($getUserID)->fetchAll();
     foreach ($user_id as $uid) {
       $userIDNumber = $uid["id"];
-      $getExistingSaves = "SELECT `tbl_savegames`.`game_id` FROM `tbl_savegames` WHERE `tbl_savegames`.`user_id` = $userIDNumber ORDER BY `tbl_savegames`.`game_id` ASC";
+      $getExistingSaves = "SELECT `tbl_savegames`.`game_id` FROM `tbl_savegames` WHERE `tbl_savegames`.`user_id` = $userIDNumber ORDER BY `date_last_opened` ASC";
     }
     $existingSaves = $database->query($getExistingSaves)->fetchAll();
     $countedSaves = count($existingSaves);
