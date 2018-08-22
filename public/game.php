@@ -83,10 +83,6 @@ if (isset($_SESSION['login']))
         </div>
     </body>
 
-
-
-    // quit game session
-
     <?php
   }
   else
