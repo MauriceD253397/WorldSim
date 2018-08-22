@@ -32,7 +32,7 @@ if (isset($_SESSION['login']))
     $getGameName = "SELECT `tbl_savegames`.`game_name` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
     $game_name = $database->query($getGameName)->fetchAll();
     foreach ($game_name as $gName) {
-      ?><div class="header_bar_game_name"><?php echo $gName["game_name"];?></div><?php
+      ?><div class="header_bar_game_name"><div></div><span><?php echo $gName["game_name"];?></span><div></div></div><?php
     }
 
     $getGameStats = "SELECT `tbl_savegames`.`population`, `tbl_savegames`.`mana` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
