@@ -38,7 +38,7 @@ session_start(); ?>
     { ?>
     <form action="../app/LoadSaveHandler.php" method="post">
       <?php foreach($existingSaves as $saves) { ?>
-      <input type="radio" name="save_id" value="<?php echo $saves["game_id"]?>">
+      <input type="radio" name="save_id" value="<?php echo $saves["game_id"]?>" required>
     <?php } ?>
       <input type="submit" name="submit" value="Load Save">
       <input type="submit" name="submit" value="Delete Save">
@@ -47,7 +47,7 @@ session_start(); ?>
     if ($countedSaves < 3)
     { ?>
       <form action="../app/NewSaveHandler.php" method="post">
-        <input type="text" name="save_name">
+        <input type="text" name="save_name" required>
         <input type="submit" name="new_save" value="Create New Save">
       </form>
     <?php } ?>
