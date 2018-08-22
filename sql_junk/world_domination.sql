@@ -59,6 +59,7 @@ CREATE TABLE `tbl_population` (
   `game_id` int(11) NOT NULL,
   `civilian_id` int(11) NOT NULL,
   `age` int(11) NOT NULL DEFAULT 0,
+  `gender` bit NOT NULL, -- 0 = male  1 = female
   `parent_id_m` int(11),
   `parent_id_f` int(11),
   `strength` int(11) NOT NULL DEFAULT 0,
