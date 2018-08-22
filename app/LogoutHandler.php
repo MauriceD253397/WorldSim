@@ -3,6 +3,7 @@
 session_start(); // session moet gek genoeg ALTIJD gestart worden.
 
 $_SESSION['login'] = NULL;
+$_SESSION['game'] = NULL;
 // Nu maken we de session null en vernietigen we de session
 
 // remove all session variables
