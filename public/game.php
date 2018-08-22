@@ -13,11 +13,13 @@ if (isset($_SESSION['login']))
     foreach ($game_name as $gName) {
       echo $gName["game_name"];
     }
+
     $getGameStats = "SELECT `tbl_savegames`.`population`, `tbl_savegames`.`mana` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
     $game_stats = $database->query($getGameStats)->fetchAll();
     foreach ($game_stats as $gStats) {
       echo " Population: ".$gStats["population"]." Mana: ".$gStats["mana"];
     }
+
     $user_id = $_SESSION['game'];
     $getUserScore = "SELECT `tbl_login`.`score` FROM `tbl_login` WHERE `tbl_login`.`id` = $user_id;";
     $userScore = $database->query($getUserScore)->fetchAll();
@@ -34,6 +36,33 @@ if (isset($_SESSION['login']))
     ?>
 
     // the game
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/game.css">
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="console">
+                
+            </div>
+
+        </div>
+    </body>
+
+
 
     // quit game session
 
