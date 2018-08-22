@@ -48,7 +48,7 @@ CREATE TABLE `tbl_savegames` (
   `date_created` datetime NOT NULL,
   `date_last_opened` datetime NOT NULL,
   `population` int(11) NOT NULL DEFAULT 0,
-  `currency` int(11) NOT NULL DEFAULT 0
+  `mana` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -58,7 +58,12 @@ CREATE TABLE `tbl_savegames` (
 CREATE TABLE `tbl_population` (
   `game_id` int(11) NOT NULL,
   `civilian_id` int(11) NOT NULL,
-  `age` int(11) NOT NULL DEFAULT 0
+  `age` int(11) NOT NULL DEFAULT 0,
+  `parent_id_m` int(11),
+  `parent_id_f` int(11),
+  `strength` int(11) NOT NULL DEFAULT 0,
+  `endurance` int(11) NOT NULL DEFAULT 0,
+  `charisma` int(11) NOT NULL DEFAULT 0,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
