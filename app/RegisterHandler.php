@@ -40,7 +40,7 @@ function getUserAmount($user_register, $database)
 }
 function inputAccountData($user_register, $hashedPass, $email_register, $database)
 {
-    $inputAccountQuery = "INSERT INTO `tbl_login` (`id`, `username`, `password`, `email`) VALUES (NULL, '$user_register', '$hashedPass', '$email_register');";
+    $inputAccountQuery = "INSERT INTO `tbl_login` (`id`, `username`, `password`, `email`, `date_registered`) VALUES (NULL, '$user_register', '$hashedPass', '$email_register', CURRENT_TIMESTAMP);";
 
     $database->query($inputAccountQuery);
 
