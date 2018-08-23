@@ -39,6 +39,9 @@
   <?php
     if (isset($_SESSION['login']))
     {
+      $user_id = $_SESSION['login'];
+      $input_last_login = "UPDATE `tbl_login` SET `last_login` = CURRENT_TIMESTAMP WHERE `tbl_login`.`id` = $user_id;";
+      $database->query($input_last_login);
         ?>
 
         <script type='text/javascript'>
