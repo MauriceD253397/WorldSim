@@ -34,6 +34,7 @@ CREATE TABLE `tbl_login` (
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `date_registered` datetime NOT NULL,
+  `last_login` datetime NOT NULL,
   `score` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
