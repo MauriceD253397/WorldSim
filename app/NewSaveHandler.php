@@ -8,7 +8,8 @@ if (isset($_SESSION['login']))
   $saveNameLength = false;
   $save_nameNotExist = false;
 
-  if(strlen($save_name) >= 3) { //strlen is functie voor grootte van string.
+if(strlen($save_name) >= 3) { //strlen is functie voor grootte van string.
+  if(strlen($save_name) <= 15) { //strlen is functie voor grootte van string.
       $saveNameLength = true;
   }
   else{
@@ -19,6 +20,15 @@ if (isset($_SESSION['login']))
           },0);</script>
       <?php
   }
+}
+else{
+    ?>
+    <script type='text/javascript'>
+        setTimeout(function () {
+            window.location.replace("../public/savegames.php");
+        },0);</script>
+    <?php
+}
 
   function getSaveAmount($save_name, $database)
   {
