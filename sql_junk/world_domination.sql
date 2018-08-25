@@ -33,8 +33,8 @@ CREATE TABLE `tbl_login` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `date_registered` datetime NOT NULL,
-  `last_login` datetime NOT NULL,
+  `date_registered` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_login` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `score` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -46,8 +46,8 @@ CREATE TABLE `tbl_savegames` (
   `game_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user_id` int(11) NOT NULL,
   `game_name` varchar(255) NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_last_opened` datetime NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_last_opened` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `population` int(11) NOT NULL DEFAULT 0,
   `mana` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
