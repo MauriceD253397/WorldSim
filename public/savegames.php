@@ -1,7 +1,8 @@
 <!doctype html>
 <?php
 require('../app/config/DatabaseConnector.php');
-session_start(); ?>
+session_start();
+  $_SESSION['game'] = NULL;?>
 
 <html class="no-js" lang="">
 
