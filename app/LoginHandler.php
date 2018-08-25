@@ -1,20 +1,22 @@
 <?php
-
+session_start();
 
 require('config/DatabaseConnector.php');
 require('PostHandler.php');
 
 $hashedPass = md5($pass_login);
-$getUsername = "SELECT * FROM `tbl_login` WHERE (`username` = '$user_login' OR `email` = '$email_login') AND `password` = '$hashedPass'";
-//$getUsername = "SELECT * FROM `tbl_login` WHERE `username` = `password` = '$hashedPass' AND ('$user_login' OR `username` = '$email_login')";
+$getID = "SELECT `id` FROM `tbl_login` WHERE (`username` = '$user_login' OR `email` = '$email_login') AND `password` = '$hashedPass'";
 
-$uncountedUsername = $database->query($getUsername)->fetchAll();
+$uncountedUsername = $database->query($getID)->fetchAll();
 
 $countedUsername = count($uncountedUsername);
 
 if($countedUsername >= 1)
 {
-    session_start();
+  foreach ($uncountedUsername as $uncountedUsername)
+  $user_id = $uncountedUsername["id"];
+    $input_last_login = "UPDATE `tbl_login` SET `last_login` = CURRENT_TIMESTAMP WHERE `id` = $user_id";
+    $database->query($input_last_login);
     $_SESSION['login'] = $user_login;
     ?>
 
