@@ -46,8 +46,9 @@ $scoreString= " score:  ";
         foreach($userHighscore as $uscore)
         {
             foreach($userPosition as $upos)
-            {
-              echo $upos["user_position"].$uscore["username"].$scoreString.$uscore["score"];
+            { ?><div class="user_score" style="margin-top: 20px; background-color: cyan;"><?php
+                echo $upos["user_position"].$uscore["username"].$scoreString.$uscore["score"];?>
+              </div><?php
             }
           }
             ?>
