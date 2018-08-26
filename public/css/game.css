@@ -20,8 +20,8 @@ body {
 .header_bar_game_name {
   margin-left: 0px;
   height: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   background-color: gray;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
@@ -39,11 +39,15 @@ a {
 .quit_button {
   margin-right: 0px;
   height: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   background-color: gray;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
+}
+
+.quit_button:hover {
+  background-color: darkgray;
 }
 
 .quit_button span {
