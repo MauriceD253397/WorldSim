@@ -54,7 +54,7 @@ if (isset($_SESSION['login']))
       }
     }
     ?>
-    <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit Button</span><div></div></div></a>
+    <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
     </div>
     // the game
 
