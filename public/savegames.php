@@ -31,7 +31,7 @@ session_start();
     $user_id = $database->query($getUserID)->fetchAll();
     foreach ($user_id as $uid) {
       $userIDNumber = $uid["id"];
-      $getExistingSaves = "SELECT `tbl_savegames`.`game_id` FROM `tbl_savegames` WHERE `tbl_savegames`.`user_id` = $userIDNumber ORDER BY `date_last_opened` ASC";
+      $getExistingSaves = "SELECT * FROM `tbl_savegames` WHERE `tbl_savegames`.`user_id` = $userIDNumber ORDER BY `date_last_opened` DESC";
     }
     $existingSaves = $database->query($getExistingSaves)->fetchAll();
     $countedSaves = count($existingSaves);
@@ -40,9 +40,12 @@ session_start();
       <div class="savegames_div">
         <div></div>
         <div class="savegames_div_middle">
-          <form action="../app/LoadSaveHandler.php" method="post">
+          <form action="../app/LoadSaveHandler.php" method="post" class="existingSaves">
             <?php foreach($existingSaves as $saves) { ?>
-            <input type="radio" name="save_id" value="<?php echo $saves["game_id"]?>" required>
+            <div class="inputGroup">
+              <input type="radio" name="save_id" id="<?php echo $saves["game_id"]?>" value="<?php echo $saves["game_id"]?>" required>
+              <label for="<?php echo $saves["game_id"]?>">Save: <?php echo $saves["game_name"]?><br>Last opened: <?php echo $saves["date_last_opened"]?></label>
+            </div>
           <?php } ?>
             <input type="submit" name="submit" value="Load Save">
             <input type="submit" name="submit" value="Delete Save">
@@ -50,17 +53,14 @@ session_start();
         <?php }
       if ($countedSaves < 3)
       { ?>
-          <form action="../app/NewSaveHandler.php" method="post">
+          <form action="../app/NewSaveHandler.php" method="post" class="newSaves">
             <input type="text" name="save_name" required>
             <input type="submit" name="new_save" value="Create New Save">
           </form>
         </div>
         <div></div>
       </div>
-    <?php } ?>
-
-
-    <?php
+    <?php }
   }
   else
   {
