@@ -44,7 +44,13 @@ session_start();
             <?php foreach($existingSaves as $saves) { ?>
             <div class="inputGroup">
               <input type="radio" name="save_id" id="<?php echo $saves["game_id"]?>" value="<?php echo $saves["game_id"]?>" required>
-              <label for="<?php echo $saves["game_id"]?>">Save: <?php echo $saves["game_name"]?><br>Last opened: <?php echo $saves["date_last_opened"]?></label>
+              <label for="<?php echo $saves["game_id"]?>"><?php echo $saves["game_name"]?><br><?php $time = strtotime($saves["date_last_opened"]);
+              if( $time > strtotime('-7 day') ) {
+                echo date('H:i - l', $time);
+              }
+              else {
+                echo date('H:i - jS \of F Y', $time);
+              }?></label>
             </div>
           <?php } ?>
             <input type="submit" name="submit" value="Load Save">
