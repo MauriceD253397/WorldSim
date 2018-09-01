@@ -58,6 +58,28 @@ if (isset($_SESSION['login']))
     	<div class="settings_popup">
     		<a class="close_settings" href="#">&times;</a>
     		<div class="settings_content">
+          <h1>Settings</h1>
+          <hr>
+          <h2>Game Colour</h2>
+          <form method="post">
+            <input type="radio" name="colour_1" required>
+            <input type="radio" name="colour_1" required>
+            <input type="radio" name="colour_1" required>
+            <input type="radio" name="colour_1" required>
+            <input type="radio" name="colour_1" required>
+            <input id="submit" type="submit" value="Change Colour">
+          </form>
+          <hr>
+          <h2>Rename Save</h2>
+          <form method="post">
+            <input type="text" name="save_name" placeholder="New Save Name" required maxlength="20" minlength="3">
+            <input id="submit" type="submit" value="Rename">
+          </form>
+          <hr>
+          <h2>Delete Save</h2>
+          <form method="post">
+            <input id="submit" type="submit" value="Delete Save">
+          </form>
     		</div>
     	</div>
     </div>
