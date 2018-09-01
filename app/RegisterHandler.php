@@ -2,7 +2,8 @@
 require('PostHandler.php');
 require('config/DatabaseConnector.php');
 
-$userLength = false; // hier maken we alle variables aan die we willen checken bij de if statements.
+$emailValid = false; // hier maken we alle variables aan die we willen checken bij de if statements.
+$userLength = false;
 $userExist = false;
 $passLength = false;
 $passCapital = false;
@@ -15,6 +16,18 @@ $pass_register = $_POST['pass_register'];
 $confirm_pass_register = $_POST['confirm_pass_register'];
 
 $hashedPass = md5($pass_register);
+
+if(filter_var($email, FILTER_VALIDATE_EMAIL)) { //strlen is functie voor grootte van string.
+    $emailValid = true;
+}
+else{
+    ?>
+    <script type='text/javascript'>
+        setTimeout(function () {
+            window.location.replace("../public/login.php");
+        },0);</script>
+    <?php
+}
 
 if(strlen($user_register) >= 3) { //strlen is functie voor grootte van string.
     $userLength = true;
@@ -32,10 +45,10 @@ else{
     <?php
 }
 
-function getUserAmount($user_register, $database)
+function getUserAmount($user_register, $email_register, $database)
 {
 
-    $getUsernameDatabaseQuery = "SELECT `username` FROM `tbl_login` WHERE `username` = '$user_register'";
+    $getUsernameDatabaseQuery = "SELECT `username` FROM `tbl_login` WHERE `username` = '$user_register' OR `email` = '$email_register'";
 
     $resultsUncounted = $database->query($getUsernameDatabaseQuery) ->fetchAll();
 
@@ -50,7 +63,7 @@ function inputAccountData($user_register, $hashedPass, $email_register, $databas
 }
 
 
-if(getUserAmount($user_register,$database) < 1)
+if(getUserAmount($user_register, $email_register, $database) < 1)
 {
     $userExist = true;
 }
@@ -67,7 +80,7 @@ else{
     <?php
 }
 
-if(strlen($pass_register) >= 7)
+if(strlen($pass_register) >= 8)
 {
     $passLength = true;
 }
@@ -154,7 +167,7 @@ var_dump($passEqual);
 if ($userLength  == true && $userExist == true && $passLength == true && $passCapital == true && $passNumber == true && $passEqual == true) {
 
     inputAccountData($user_register,$hashedPass,$email_register,$database);
-    
+
     session_start();
     $_SESSION['login'] = $user_register;
     ?>
@@ -169,4 +182,3 @@ if ($userLength  == true && $userExist == true && $passLength == true && $passCa
 }
 // we hoeven nu geen else te maken omdat we al een else bij alle andere fouten hebben gedaan.
 ?>
-

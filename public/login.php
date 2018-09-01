@@ -71,18 +71,18 @@
 
       <div class="loginContent">
           <form action="../app/LoginHandler.php" method="post">
-              <input type="text" name="user_login" placeholder="Username/E-mail" required autofocus>
-              <input type="password" name="pass_login" placeholder="Password" required>
+              <input type="text" name="user_login" placeholder="Username/E-mail" required autofocus minlength="3">
+              <input type="password" name="pass_login" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
               <input id="submit" type="submit" value="Log in">
           </form>
       </div>
 
       <div class="signUpContent">
           <form action="../app/RegisterHandler.php" method="post">
-              <input type="text" name="user_register" placeholder="Enter your username here" required autofocus>
-              <input type="email" name="email_register" placeholder="Enter your e-mail here" required>
-              <input type="password" name="pass_register" placeholder="Enter your password here" required>
-              <input type="password" name="confirm_pass_register" placeholder="Confirm your password here" required>
+              <input type="text" name="user_register" placeholder="Enter your username here" required autofocus minlength="3" title="Enter your username here">
+              <input type="email" name="email_register" placeholder="Enter your e-mail here" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Enter a valid e-mail here">
+              <input type="password" name="pass_register" placeholder="Enter your password here" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="off">
+              <input type="password" name="confirm_pass_register" placeholder="Confirm your password here" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be the same as your first password" autocomplete="off">
               <label class="containerCheckmark"><input class="formcss" type="checkbox" name="terms_register" value="unchecked" required>
                   <span class="checkmark"></span></label>
               <span style="margin-left: 100px; color: white;">I accept the<a id="toa" href="https://termsfeed.com/terms-conditions/063c799df46d17583bb0844688a86cad" style="color:#0062ff;">Terms and Conditions</a></span>
