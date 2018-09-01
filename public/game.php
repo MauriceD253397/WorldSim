@@ -52,6 +52,7 @@ if (isset($_SESSION['login']))
       }
     }
     ?>
+    <a href="../app/LoadSaveHandler.php"><div class="settings_button"><div></div><span>Settings</span><div></div></div></a>
     <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
     </div>
     <div id="settings" class="settings_overlay">
@@ -77,7 +78,8 @@ if (isset($_SESSION['login']))
           </form>
           <hr>
           <h2>Delete Save</h2>
-          <form method="post" action="../app/LoadSaveHandler.php">
+          <form action="../app/LoadSaveHandler.php" method="post">
+            <input type="hidden" value="<?php echo $game_id?>" name="save_id" />
             <input type="submit" name="submit" value="Delete Save">
           </form>
     		</div>
