@@ -19,8 +19,13 @@ if (isset($_SESSION['login']))
     <link rel="apple-touch-icon" href="icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/game.css">
+    <link rel="stylesheet" type="text/css" href="css/defaulttheme.css" title="Default Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/christmastheme.css" title="Christmas Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/bluetheme.css" title="Blue Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/bluetheme.css" title="Holiday Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/bluetheme.css" title="Red Theme">
 </head>
 
 <body>
@@ -47,12 +52,12 @@ if (isset($_SESSION['login']))
         if ($gStats["population"] > $uScore["score"])
         {
           $population = $gStats["population"];
-          $setUserScore = "INSERT INTO `tbl_login` (`score`) VALUES ($population)";
+          $setUserScore = "INSERT INTO `tbl_login` (`score`) VALUES ($population) WHERE `tbl_login`.`id` = $user_id;";
         }
       }
     }
     ?>
-    <a href="../app/LoadSaveHandler.php"><div class="settings_button"><div></div><span>Settings</span><div></div></div></a>
+    <a href="#settings"><div class="settings_button_sub"><div></div><span>Settings</span><div></div></div></a>
     <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
     </div>
     <div id="settings" class="settings_overlay">
@@ -61,20 +66,20 @@ if (isset($_SESSION['login']))
     		<div class="settings_content">
           <h1>Settings</h1>
           <hr>
-          <h2>Game Colour</h2>
+          <h2>Themes</h2>
           <form method="post">
-            <input type="radio" name="colour_1" required>
-            <input type="radio" name="colour_1" required>
-            <input type="radio" name="colour_1" required>
-            <input type="radio" name="colour_1" required>
-            <input type="radio" name="colour_1" required>
-            <input id="submit" type="submit" value="Change Colour">
+            <input type="radio" name="theme" value="Default Theme" required>
+            <input type="radio" name="theme" value="Christmas Theme" required>
+            <input type="radio" name="theme" value="Blue Theme" required>
+            <input type="radio" name="theme" value="Holiday Theme" required>
+            <input type="radio" name="theme" value="Red Theme" required>
+            <input type="submit" name="submit" value="Change Theme">
           </form>
           <hr>
           <h2>Rename Save</h2>
-          <form method="post">
-            <input type="text" name="save_name" placeholder="New Save Name" required maxlength="20" minlength="3">
-            <input id="submit" type="submit" value="Rename">
+          <form action="../app/RenameSaveHandler.php" method="post">
+            <input type="text" name="save_name" placeholder="New Save Name" required maxlength="20" minlength="3" autocomplete="off">
+            <input type="submit" name="submit" value="Rename">
           </form>
           <hr>
           <h2>Delete Save</h2>
@@ -85,24 +90,6 @@ if (isset($_SESSION['login']))
     		</div>
     	</div>
     </div>
-    // the game
-
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/game.css">
-    </head>
-
-    <body>
         <div class="container">
 
             <div class="console">
