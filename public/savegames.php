@@ -45,7 +45,8 @@ session_start();
             <div class="inputGroup">
               <input type="radio" name="save_id" id="<?php echo $saves["game_id"]?>" value="<?php echo $saves["game_id"]?>" required>
               <label for="<?php echo $saves["game_id"]?>"><?php echo $saves["game_name"]?><br><?php $time = strtotime($saves["date_last_opened"]);
-              if( $time > strtotime('-7 day') ) {
+              $timeLastWeek = strtotime('-6 day') - (strtotime('now')-(strtotime('today')));
+              if( $time > $timeLastWeek ) {
                 echo date('H:i - l', $time);
               }
               else {
