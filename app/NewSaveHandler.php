@@ -34,7 +34,7 @@ else{
     <?php
 }
 
-function getSaveAmount($save_name, $database)
+function getSaveAmount($user_id, $save_name, $database)
 {
   foreach ($user_id as $uid) {
     $userIDNumber = $uid["id"];
@@ -46,7 +46,7 @@ function getSaveAmount($save_name, $database)
       return count($resultsUncounted);
   }
 
-  if(getSaveAmount($save_name,$database) < 1)
+  if(getSaveAmount($user_id, $save_name,$database) < 1)
   {
       $save_nameNotExist = true;
   }
