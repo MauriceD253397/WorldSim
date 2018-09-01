@@ -179,7 +179,7 @@ textarea {
       color: #000;
     }
 
-    input {
+    .loginContent input {
       width: 96%;
       padding: 12px;
         margin-left: -30px;
@@ -189,7 +189,22 @@ textarea {
       color: #666;
     }
 
-    input:focus {
+    .loginContent input:focus {
+      outline: none;
+      border: 2px solid #555;
+    }
+
+    .signUpContent input {
+      width: 96%;
+      padding: 12px;
+        margin-left: -30px;
+      margin-bottom: 16px;
+      font-size: 20px;
+      background-color: #fff;
+      color: #666;
+    }
+
+    .signUpContent input:focus {
       outline: none;
       border: 2px solid #555;
     }
