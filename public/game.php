@@ -47,12 +47,12 @@ if (isset($_SESSION['login']))
         if ($gStats["population"] > $uScore["score"])
         {
           $population = $gStats["population"];
-          $setUserScore = "INSERT INTO `tbl_login` (`score`) VALUES ($population)";
+          $setUserScore = "INSERT INTO `tbl_login` (`score`) VALUES ($population) WHERE `tbl_login`.`id` = $user_id;";
         }
       }
     }
     ?>
-    <a href="#settings"><div class="settings_button"><div></div><span>Settings</span><div></div></div></a>
+    <a href="#settings"><div class="settings_button_sub"><div></div><span>Settings</span><div></div></div></a>
     <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
     </div>
     <div id="settings" class="settings_overlay">
@@ -85,24 +85,6 @@ if (isset($_SESSION['login']))
     		</div>
     	</div>
     </div>
-    // the game
-
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/game.css">
-    </head>
-
-    <body>
         <div class="container">
 
             <div class="console">
