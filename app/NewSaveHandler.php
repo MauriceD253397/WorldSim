@@ -100,7 +100,7 @@ if (($countedSaves < 3) && ($saveNameLength == true) && ($save_nameNotExist == t
   ?>
   <script type='text/javascript'>
       setTimeout(function () {
-          window.location.replace("../public/game.php");
+          window.location.replace("../public/login.php");
       },0);</script>
   <?php
 }
