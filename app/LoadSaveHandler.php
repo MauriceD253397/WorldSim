@@ -33,6 +33,7 @@ if ($countedSaves == 1)
     $database->query($deleteChosenSave);
     $deleteChosenSave = "DELETE FROM `tbl_population` WHERE `tbl_population`.`game_id` = $game_id;";
     $database->query($deleteChosenSave);
+    $_SESSION['game'] = NULL;
     ?>
     <script type='text/javascript'>
         setTimeout(function () {
