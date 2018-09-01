@@ -54,6 +54,13 @@ if (isset($_SESSION['login']))
     ?>
     <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
     </div>
+    <div id="settings" class="settings_overlay">
+    	<div class="settings_popup">
+    		<a class="close_settings" href="#">&times;</a>
+    		<div class="settings_content">
+    		</div>
+    	</div>
+    </div>
     // the game
 
     <head>
