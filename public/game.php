@@ -1,7 +1,11 @@
 <!doctype html>
 <?php session_start();
-require('../app/config/DatabaseConnector.php');?>
-
+require('../app/config/DatabaseConnector.php');
+if (isset($_SESSION['login']))
+{
+  if (isset($_SESSION['game']))
+  {
+    ?>
 <html class="no-js" lang="">
 
 <head>
@@ -20,12 +24,6 @@ require('../app/config/DatabaseConnector.php');?>
 </head>
 
 <body>
-<?php
-if (isset($_SESSION['login']))
-{
-  if (isset($_SESSION['game']))
-  {
-    ?>
     <div class="header_bar_game">
     <?php
     $game_id = $_SESSION['game'];
@@ -56,7 +54,24 @@ if (isset($_SESSION['login']))
     ?>
     <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
     </div>
+    // the game
 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/game.css">
+    </head>
+
+    <body>
         <div class="container">
 
             <div class="console">
@@ -64,8 +79,10 @@ if (isset($_SESSION['login']))
             </div>
 
         </div>
+    </body>
 
-    <?php
+
+    </html><?php
   }
   else
   { ?>
@@ -84,5 +101,3 @@ else
     },0);</script>
     <?php
 }?>
-</body>
-</html>
