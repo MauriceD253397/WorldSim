@@ -374,6 +374,7 @@ textarea {
       height: 100%;
       display: grid;
       grid-template-columns: 1fr 500px 1fr;
+      box-sizing: border-box;
     }
 
     .savegames_div .savegames_div_middle {
@@ -451,6 +452,10 @@ textarea {
         transition: all 200ms ease-in;
       }
 
+      .inputGroup label:hover {
+      background-color: #ebebeb;
+      }
+
 
     .inputGroup input:checked ~ label {
       color: #fff;
@@ -466,7 +471,6 @@ textarea {
         border-color: #54E0C7;
       }
 
-
     .inputGroup input {
       width: 32px;
       height: 32px;
@@ -480,9 +484,27 @@ textarea {
       visibility: hidden;
     }
 
-html {
-  box-sizing: border-box;
-}
+    .savegames_div_middle input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 30px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+    }
+
+    .savegames_div_middle input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    .savegames_div input[type=text] {
+      border: none;
+      padding: 12px 30px;
+      outline: none;
+      text-align: center;
+      margin: 8px 0;
+    }
 
 
 /* ==========================================================================
