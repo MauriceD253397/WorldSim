@@ -2,7 +2,18 @@
 <?php
 require('../app/config/DatabaseConnector.php');
 session_start();
-  $_SESSION['game'] = NULL;?>
+  if (isset($_SESSION['game']))
+  {
+?>
+
+<script type='text/javascript'>
+    setTimeout(function () {
+        window.location.replace("../public/game.php");
+    },0);
+</script><?php
+  }
+  else
+  {?>
 
 <html class="no-js" lang="">
 
@@ -23,7 +34,7 @@ session_start();
 
 <body>
 
-  <?php
+<?php
   if (isset($_SESSION['login']))
   {
     $user_login = $_SESSION['login'];
@@ -79,7 +90,7 @@ session_start();
     },0);
 </script>
 
-<?php } ?>
+<?php } } ?>
 </div>
 <script src="js/vendor/modernizr-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
