@@ -1,7 +1,11 @@
 <!doctype html>
 <?php session_start();
-require('../app/config/DatabaseConnector.php');?>
-
+require('../app/config/DatabaseConnector.php');
+if (isset($_SESSION['login']))
+{
+  if (isset($_SESSION['game']))
+  {
+    ?>
 <html class="no-js" lang="">
 
 <head>
@@ -20,12 +24,6 @@ require('../app/config/DatabaseConnector.php');?>
 </head>
 
 <body>
-<?php
-if (isset($_SESSION['login']))
-{
-  if (isset($_SESSION['game']))
-  {
-    ?>
     <div class="header_bar_game">
     <?php
     $game_id = $_SESSION['game'];
@@ -54,6 +52,7 @@ if (isset($_SESSION['login']))
       }
     }
     ?>
+    <a class="settings_button" href="#settings"><div class="settings_button_sub"><div></div><span>Settings</span><div></div></div></a>
     <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
     </div>
     // the game
@@ -83,7 +82,8 @@ if (isset($_SESSION['login']))
         </div>
     </body>
 
-    <?php
+
+    </html><?php
   }
   else
   { ?>
@@ -102,4 +102,3 @@ else
     },0);</script>
     <?php
 }?>
-</html>
