@@ -77,8 +77,8 @@ if (isset($_SESSION['login']))
           </form>
           <hr>
           <h2>Delete Save</h2>
-          <form method="post">
-            <input id="submit" type="submit" value="Delete Save">
+          <form method="post" action="../app/LoadSaveHandler.php">
+            <input type="submit" name="submit" value="Delete Save">
           </form>
     		</div>
     	</div>
