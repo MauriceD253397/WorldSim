@@ -52,7 +52,7 @@ if (isset($_SESSION['login']))
       }
     }
     ?>
-    <a class="settings_button" href="#settings"><div class="settings_button_sub"><div></div><span>Settings</span><div></div></div></a>
+    <a href="#settings"><div class="settings_button"><div></div><span>Settings</span><div></div></div></a>
     <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
     </div>
     <div id="settings" class="settings_overlay">
@@ -72,9 +72,9 @@ if (isset($_SESSION['login']))
           </form>
           <hr>
           <h2>Rename Save</h2>
-          <form method="post">
-            <input type="text" name="save_name" placeholder="New Save Name" required maxlength="20" minlength="3">
-            <input id="submit" type="submit" value="Rename">
+          <form action="../app/RenameSaveHandler.php" method="post">
+            <input type="text" name="save_name" placeholder="New Save Name" required maxlength="20" minlength="3" autocomplete="off">
+            <input type="submit" name="submit" value="Rename">
           </form>
           <hr>
           <h2>Delete Save</h2>
