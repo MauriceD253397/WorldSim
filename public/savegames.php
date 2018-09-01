@@ -60,7 +60,7 @@ session_start();
       if ($countedSaves < 3)
       { ?>
           <form action="../app/NewSaveHandler.php" method="post" class="newSaves">
-            <input type="text" name="save_name" required maxlength="20">
+            <input type="text" name="save_name" required maxlength="20" minlength="3">
             <input type="submit" name="new_save" value="Create New Save">
           </form>
         </div>
