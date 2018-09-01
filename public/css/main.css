@@ -232,6 +232,40 @@ textarea {
       color: #666;
     }
 
+    .loginContent input:focus {
+      outline: none;
+      border: 2px solid #555;
+    }
+
+    .signUpContent input {
+      width: 96%;
+      padding: 12px;
+        margin-left: -30px;
+      margin-bottom: 16px;
+      font-size: 20px;
+      background-color: #fff;
+      color: #666;
+    }
+
+    .signUpContent input:focus {
+      outline: none;
+      border: 2px solid #555;
+    }
+
+    #submit {
+      width: 100%;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #f44336;
+      color: #fff;
+      cursor: pointer;
+        max-width: 100%;
+        -moz-transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
     #submit:focus {
         outline: none;
         -moz-transform: scale(1.02);
