@@ -8,6 +8,10 @@ if (isset($_SESSION['login']))
   $saveNameLength = false;
   $save_nameNotExist = false;
 
+$user_login = $_SESSION['login'];
+  $getUserID = "SELECT * FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login'";
+  $user_id = $database->query($getUserID)->fetchAll();
+
 if(strlen($save_name) >= 3) { //strlen is functie voor grootte van string.
   if(strlen($save_name) <= 15) { //strlen is functie voor grootte van string.
       $saveNameLength = true;
@@ -30,12 +34,14 @@ else{
     <?php
 }
 
-  function getSaveAmount($save_name, $database)
-  {
+function getSaveAmount($save_name, $database)
+{
+  foreach ($user_id as $uid) {
+    $userIDNumber = $uid["id"];
+    $getSaveNameDatabaseQuery = "SELECT `game_name` FROM `tbl_savegames` WHERE `game_name` = '$save_name' AND `user_id` = $userIDNumber";
+  }
 
-      $getSaveNameDatabaseQuery = "SELECT `game_name` FROM `tbl_savegames` WHERE `game_name` = '$save_name'";
-
-      $resultsUncounted = $database->query($getSaveNameDatabaseQuery) ->fetchAll();
+    $resultsUncounted = $database->query($getSaveNameDatabaseQuery) ->fetchAll();
 
       return count($resultsUncounted);
   }
@@ -54,9 +60,6 @@ else{
   }
 
 
-  $user_login = $_SESSION['login'];
-  $getUserID = "SELECT * FROM `tbl_login` WHERE `tbl_login`.`username` = '$user_login'";
-  $user_id = $database->query($getUserID)->fetchAll();
   foreach ($user_id as $uid) {
     $userIDNumber = $uid["id"];
     $getExistingSaves = "SELECT `tbl_savegames`.`game_id` FROM `tbl_savegames` WHERE `tbl_savegames`.`user_id` = $userIDNumber ORDER BY `tbl_savegames`.`game_id` ASC";
