@@ -94,7 +94,7 @@ else
   ?>
   <script type='text/javascript'>
       setTimeout(function () {
-          window.location.replace("../public/savegames.php");
+          window.location.replace("../public/login.php");
       },0);</script>
   <?php
 }
