@@ -76,12 +76,21 @@ if (isset($_SESSION['login']))
             <a href="#" onclick="setActiveStyleSheet('Holiday Theme'); return false;">Holiday Theme</a><br>
             <a href="#" onclick="setActiveStyleSheet('Christmas Theme'); return false;">Christmas Theme</a><br>
           </form>
+          <br>
+          <hr>
+          <h2>Save Game</h2>
+          <form method="post">
+            <input type="hidden" value="<?php echo $game_id?>" name="save_id" />
+            <input type="submit" name="submit" value="Save Game" disabled>
+          </form>
+          <br>
           <hr>
           <h2>Rename Save</h2>
           <form action="../app/RenameSaveHandler.php" method="post">
             <input type="text" name="save_name" placeholder="New Save Name" required maxlength="20" minlength="3" autocomplete="off">
             <input type="submit" name="submit" value="Rename">
           </form>
+          <br>
           <hr>
           <h2>Delete Save</h2>
           <form action="../app/LoadSaveHandler.php" method="post">
