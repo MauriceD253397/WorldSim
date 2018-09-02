@@ -21,11 +21,11 @@ if (isset($_SESSION['login']))
 
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/game.css">
-    <link rel="stylesheet" type="text/css" href="css/gamethemes/defaulttheme.css" title="Default Theme">
+    <link rel="stylesheet" type="text/css" href="css/gamethemes/defaulttheme.css">
+	  <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/bluetheme.css" title="Blue Theme" />
+    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/redtheme.css" title="Red Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/holidaytheme.css" title="Holiday Theme">
     <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/christmastheme.css" title="Christmas Theme">
-    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/bluetheme.css" title="Blue Theme">
-    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/bluetheme.css" title="Holiday Theme">
-    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/bluetheme.css" title="Red Theme">
 </head>
 
 <body>
@@ -68,11 +68,11 @@ if (isset($_SESSION['login']))
           <hr>
           <h2>Themes</h2>
           <form method="post">
-            <input type="radio" onclick=”setActiveStyleSheet(‘default’); return false;” name="theme">
-            <input type="radio" onclick=”setActiveStyleSheet(‘alternate’); return false;” name="theme">
-            <input type="radio" onclick=”setActiveStyleSheet(‘alternate’); return false;” name="theme">
-            <input type="radio" onclick=”setActiveStyleSheet(‘alternate’); return false;” name="theme">
-            <input type="radio" onclick=”setActiveStyleSheet(‘alternate’); return false;” name="theme">
+            <input type="radio" onclick="setActiveStyleSheet('default'); return false;" name="theme">
+            <input type="radio" onclick="setActiveStyleSheet('Blue Theme'); return false;" name="theme">
+            <input type="radio" onclick="setActiveStyleSheet('Red Theme'); return false;" name="theme">
+            <input type="radio" onclick="setActiveStyleSheet('Holiday Theme'); return false;" name="theme">
+            <input type="radio" onclick="setActiveStyleSheet('Christmas Theme'); return false;" name="theme">
           </form>
           <hr>
           <h2>Rename Save</h2>

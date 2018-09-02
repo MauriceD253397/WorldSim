@@ -15,19 +15,19 @@ a {
 }
 
 .settings_button_sub {
-  background-color: gray;
+  background-color: blue;
 }
 
 .settings_button_sub:hover {
-  background-color: darkgray;
+  background-color: darkblue;
 }
 
 .quit_button {
-  background-color: gray;
+  background-color: blue;
 }
 
 .quit_button:hover {
-  background-color: darkgray;
+  background-color: darkblue;
 }
 
 .settings_overlay {
