@@ -70,11 +70,11 @@ if (isset($_SESSION['login']))
           <hr>
           <h2>Themes</h2>
           <form method="post">
-            <input type="radio" onclick="setActiveStyleSheet('default'); return false;" name="theme">
-            <input type="radio" onclick="setActiveStyleSheet('Blue Theme'); return false;" name="theme">
-            <input type="radio" onclick="setActiveStyleSheet('Red Theme'); return false;" name="theme">
-            <input type="radio" onclick="setActiveStyleSheet('Holiday Theme'); return false;" name="theme">
-            <input type="radio" onclick="setActiveStyleSheet('Christmas Theme'); return false;" name="theme">
+            <a href="#" onclick="setActiveStyleSheet('default'); return false;">Default Theme</a><br>
+            <a href="#" onclick="setActiveStyleSheet('Blue Theme'); return false;">Blue Theme</a><br>
+            <a href="#" onclick="setActiveStyleSheet('Red Theme'); return false;">Red Theme</a><br>
+            <a href="#" onclick="setActiveStyleSheet('Holiday Theme'); return false;">Holiday Theme</a><br>
+            <a href="#" onclick="setActiveStyleSheet('Christmas Theme'); return false;">Christmas Theme</a><br>
           </form>
           <hr>
           <h2>Rename Save</h2>
