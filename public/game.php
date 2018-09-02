@@ -27,7 +27,7 @@ if (isset($_SESSION['login']))
     <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/holidaytheme.css" title="Holiday Theme">
     <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/christmastheme.css" title="Christmas Theme">
 
-    <script type="text/javascript" src="/scripts/styleswitcher.js"></script>
+    <script type="text/javascript" src="scripts/styleswitcher.js"></script>
 </head>
 
 <body>
