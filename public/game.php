@@ -19,8 +19,13 @@ if (isset($_SESSION['login']))
     <link rel="apple-touch-icon" href="icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/game.css">
+    <link rel="stylesheet" type="text/css" href="css/defaulttheme.css" title="Default Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/christmastheme.css" title="Christmas Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/bluetheme.css" title="Blue Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/bluetheme.css" title="Holiday Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/bluetheme.css" title="Red Theme">
 </head>
 
 <body>
@@ -61,14 +66,14 @@ if (isset($_SESSION['login']))
     		<div class="settings_content">
           <h1>Settings</h1>
           <hr>
-          <h2>Game Colour</h2>
+          <h2>Themes</h2>
           <form method="post">
-            <input type="radio" name="colour_1" required>
-            <input type="radio" name="colour_1" required>
-            <input type="radio" name="colour_1" required>
-            <input type="radio" name="colour_1" required>
-            <input type="radio" name="colour_1" required>
-            <input id="submit" type="submit" value="Change Colour">
+            <input type="radio" name="theme" value="Default Theme" required>
+            <input type="radio" name="theme" value="Christmas Theme" required>
+            <input type="radio" name="theme" value="Blue Theme" required>
+            <input type="radio" name="theme" value="Holiday Theme" required>
+            <input type="radio" name="theme" value="Red Theme" required>
+            <input type="submit" name="submit" value="Change Theme">
           </form>
           <hr>
           <h2>Rename Save</h2>
