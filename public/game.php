@@ -21,11 +21,11 @@ if (isset($_SESSION['login']))
 
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/game.css">
-    <link rel="stylesheet" type="text/css" href="css/defaulttheme.css" title="Default Theme">
-    <link rel="alternate stylesheet" type="text/css" href="css/christmastheme.css" title="Christmas Theme">
-    <link rel="alternate stylesheet" type="text/css" href="css/bluetheme.css" title="Blue Theme">
-    <link rel="alternate stylesheet" type="text/css" href="css/bluetheme.css" title="Holiday Theme">
-    <link rel="alternate stylesheet" type="text/css" href="css/bluetheme.css" title="Red Theme">
+    <link rel="stylesheet" type="text/css" href="css/gamethemes/defaulttheme.css" title="Default Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/christmastheme.css" title="Christmas Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/bluetheme.css" title="Blue Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/bluetheme.css" title="Holiday Theme">
+    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/bluetheme.css" title="Red Theme">
 </head>
 
 <body>
