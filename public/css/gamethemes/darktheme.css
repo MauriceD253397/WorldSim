@@ -1,0 +1,63 @@
+body {
+  background-color: #2c2e33;
+  color: #e0e1e4;
+}
+
+a {
+  color: #e0e1e4;
+}
+
+/* HEADER */
+.header_bar_game {
+  background-color: #25262a;
+}
+
+.header_bar_game_name {
+  background-color: #222226;
+}
+
+.settings_button_sub {
+  background-color: #222226;
+}
+
+.settings_button_sub:hover {
+  background-color: #1c1d21;
+}
+
+.quit_button {
+  background-color: #222226;
+}
+
+.quit_button:hover {
+  background-color: #1c1d21;
+}
+
+/* SETTINGS */
+.settings_overlay {
+  background-color: #2c2e33;
+}
+
+.settings_popup {
+  background-color: #2c2e33;
+}
+
+.settings_popup .close_settings {
+  color: #333;
+}
+
+.settings_popup .close_settings:hover {
+  color: #06D85F;
+}
+
+/* CONSOLE */
+.console {
+  background-color: #25262a;
+}
+
+.titlebar {
+  background-color: #222226;
+}
+
+.titlebar .consoleClear:hover {
+  background-color: #25262a;
+}
