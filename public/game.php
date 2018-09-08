@@ -22,9 +22,9 @@ if (isset($_SESSION['login']))
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/game.css">
     <link rel="stylesheet" type="text/css" href="css/gamethemes/defaulttheme.css">
+    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/darktheme.css" title="Dark Theme">
 	  <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/bluetheme.css" title="Blue Theme" />
     <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/redtheme.css" title="Red Theme">
-    <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/holidaytheme.css" title="Holiday Theme">
     <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/christmastheme.css" title="Christmas Theme">
 
     <script type="text/javascript" src="scripts/styleswitcher.js"></script>
@@ -71,9 +71,9 @@ if (isset($_SESSION['login']))
           <h2>Themes</h2>
           <form method="post">
             <a href="#" onclick="setActiveStyleSheet('default'); return false;">Default Theme</a><br>
+            <a href="#" onclick="setActiveStyleSheet('Dark Theme'); return false;">Dark Theme</a><br>
             <a href="#" onclick="setActiveStyleSheet('Blue Theme'); return false;">Blue Theme</a><br>
             <a href="#" onclick="setActiveStyleSheet('Red Theme'); return false;">Red Theme</a><br>
-            <a href="#" onclick="setActiveStyleSheet('Holiday Theme'); return false;">Holiday Theme</a><br>
             <a href="#" onclick="setActiveStyleSheet('Christmas Theme'); return false;">Christmas Theme</a><br>
           </form>
           <br>
