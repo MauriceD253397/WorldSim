@@ -28,6 +28,31 @@ if (isset($_SESSION['login']))
     <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/christmastheme.css" title="Christmas Theme">
 
     <script type="text/javascript" src="scripts/styleswitcher.js"></script>
+    <script type="text/javascript">
+      var turn = 0;
+      var peopleborn = 0;
+      var peopledied = 0;
+      function clearConsole()
+      {
+        document.getElementById('consoleTextArea').innerHTML = "";
+      }
+      function nextTurn()
+      {
+        turn++;
+        born = 0;
+        died = 0;
+        var events = new Array();
+        var allEvents = "";
+        events[0] = "Population: " + peopleborn + " born and " + peopledied + " died";
+        events[1] = "2";
+        events[2] = "3";
+        for (var i = 0; i < events.length; i++) {
+          allEvents += "<li>" + events[i] + "</li>";
+        }
+        document.getElementById('header_bar_game_turn').innerHTML = "Turn: " + turn;
+        document.getElementById('consoleTextArea').innerHTML = "<ul>" + allEvents + "</ul>";
+      }
+    </script>
 </head>
 
 <body>
@@ -39,7 +64,9 @@ if (isset($_SESSION['login']))
     foreach ($game_name as $gName) {
       ?><div class="header_bar_game_name"><div></div><span><?php echo $gName["game_name"];?></span><div></div></div><?php
     }
-
+    ?>
+    <div id="header_bar_game_turn">Turn: 0</div>
+    <?php
     $getGameStats = "SELECT `tbl_savegames`.`population`, `tbl_savegames`.`mana` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
     $game_stats = $database->query($getGameStats)->fetchAll();
     foreach ($game_stats as $gStats) {
@@ -100,13 +127,27 @@ if (isset($_SESSION['login']))
     		</div>
     	</div>
     </div>
-        <div class="container">
 
-            <div class="console">
+      <a onclick="nextTurn()">
+        <div>Next Turn</div>
+      </a>
 
-            </div>
+      <div class="console">
 
+        <div class="titlebar">
+          <div class="consoleTitle">Console</div>
+          <div></div>
+          <div class="consoleClear">
+            <a onclick="clearConsole()">
+              <div>Clear</div>
+            </a>
+          </div>
         </div>
+
+        <div id="consoleTextArea">
+          The console displays all events that have happened in your last turn.
+        </div>
+      </div>
     </body>
 
 

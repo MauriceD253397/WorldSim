@@ -2,17 +2,34 @@ body {
   font-family: "Arial Black", Gadget, sans-serif;
 }
 
-.container .console {
-    width: 500px;
-    height: 500px;
-    margin: 100px 0 0 700px;
+.console {
+  width: 500px;
+  height: 500px;
+  margin-top: 200px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.titlebar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+
+.titlebar .consoleTitle {
+  margin: 10px;
+}
+
+.titlebar .consoleClear {
+  padding: 10px;
+  cursor: pointer;
 }
 
 .header_bar_game {
   width: 100%;
   height: 100px;
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto 1fr auto auto auto;
 }
 
 .header_bar_game_name {
