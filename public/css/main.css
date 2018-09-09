@@ -104,6 +104,14 @@ textarea {
 
     /* INDEX */
 
+    .game_version {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 30px;
+      margin: 10px;
+    }
+
     .indexdiv {
         text-align: center;
         display: grid;
