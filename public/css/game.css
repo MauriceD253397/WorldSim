@@ -29,7 +29,7 @@ body {
   width: 100%;
   height: 100px;
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-columns: auto 1fr 1fr 1fr auto auto auto;
 }
 
 .header_bar_game_name {
