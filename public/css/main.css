@@ -104,7 +104,15 @@ textarea {
 
     }
     /* INDEX PLAY BUTTON */
-    
+
+    .game_version {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 30px;
+      margin: 10px;
+    }
+
     .indexdiv {
         font-family: "Arial Black", Gadget, sans-serif;
         text-align: center;
@@ -113,7 +121,7 @@ textarea {
         height: 100%;
         grid-template-columns: 1fr 500px 1fr;
     }
-    
+
     .indexmid {
         display: grid;
         width: 100%;
@@ -158,7 +166,7 @@ textarea {
         text-decoration: none;
         font-size: 40px;
         color: black;
-        
+
     }
 
     /*.playButton h2{
