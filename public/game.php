@@ -41,7 +41,6 @@ if (isset($_SESSION['login']))
       foreach ($game_stats as $gStats) {
         echo $gStats["turn"];
       }?>;
-      document.getElementById('header_bar_game_turn').innerHTML = "Turn: " + turn;
       var peopleborn = 0;
       var peopledied = 0;
       var population = <?php
@@ -75,6 +74,8 @@ if (isset($_SESSION['login']))
           allEvents += "<li>" + events[i] + "</li>";
         }
         document.getElementById('header_bar_game_turn').innerHTML = "Turn: " + turn;
+        document.getElementById('header_bar_game_population').innerHTML = "Population: " + population;
+        document.getElementById('header_bar_game_mana').innerHTML = "Mana: " + mana;
         document.getElementById('consoleTextArea').innerHTML = "<ul>" + allEvents + "</ul>";
       }
 
@@ -97,12 +98,11 @@ if (isset($_SESSION['login']))
     <div class="header_bar_game">
     <?php
     $getGameName = "SELECT `tbl_savegames`.`game_name` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
-    $game_name = $database->query($getGameName)->fetchAll();
-    foreach ($game_name as $gName) {
-      ?><div class="header_bar_game_name"><div></div><span><?php echo $gName["game_name"];?></span><div></div></div><?php
-    }
-    ?>
+    $game_name = $database->query($getGameName)->fetchAll();?>
+    <div class="header_bar_game_name"><div></div><span><?php foreach ($game_name as $gName) { echo $gName["game_name"]; }?></span><div></div></div>
     <div id="header_bar_game_turn">Turn: <?php foreach ($game_stats as $gStats) { echo $gStats["turn"]; }?></div>
+    <div id="header_bar_game_population">Population: <?php foreach ($game_stats as $gStats) { echo $gStats["population"]; }?></div>
+    <div id="header_bar_game_mana">Mana: <?php foreach ($game_stats as $gStats) { echo $gStats["mana"]; }?></div>
     <?php
 
     $getUserScore = "SELECT `tbl_login`.`score` FROM `tbl_login` WHERE `tbl_login`.`id` = $user_id;";
