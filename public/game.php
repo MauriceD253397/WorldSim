@@ -70,6 +70,34 @@ if (isset($_SESSION['login']))
         events[0] = "Population changes: " + peopleborn + " born and " + peopledied + " died";
         events[1] = "Current population: " + population;
         events[2] = "Mana: " + mana;
+        events[3] = "";
+        events[4] = "";
+        events[5] = "";
+        events[6] = "";
+        events[7] = "";
+        events[8] = "";
+        events[9] = "";
+        events[10] = "";
+        events[11] = "";
+        events[12] = "";
+        events[13] = "";
+        events[14] = "";
+        events[15] = "";
+        events[16] = "";
+        events[17] = "";
+        events[18] = "";
+        events[19] = "";
+        events[20] = "";
+        events[21] = "";
+        events[22] = "";
+        events[23] = "";
+        events[24] = "";
+        events[25] = "";
+        events[26] = "";
+        events[27] = "";
+        events[28] = "";
+        events[29] = "";
+        events[30] = "";
         for (var i = 0; i < events.length; i++) {
           allEvents += "<li>" + events[i] + "</li>";
         }
@@ -163,8 +191,10 @@ if (isset($_SESSION['login']))
           </div>
         </div>
 
-        <div id="consoleTextArea">
-          The console displays all events that have happened in your last turn.
+        <div class="consoleTextAreaOne">
+          <div id="consoleTextArea">
+            The console displays all events that have happened in your last turn.
+          </div>
         </div>
       </div>
 

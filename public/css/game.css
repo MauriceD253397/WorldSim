@@ -10,6 +10,20 @@ body {
   grid-template-rows: auto 1fr;
 }
 
+.consoleTextAreaOne {
+  overflow: hidden;
+}
+
+.consoleTextAreaOne #consoleTextArea  {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
 .titlebar {
   width: 100%;
   display: grid;

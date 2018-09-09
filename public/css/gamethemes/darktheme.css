@@ -54,10 +54,25 @@ a {
   background-color: #25262a;
 }
 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #1c1d21;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2b2c30;
+}
+
+/* Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #2e2f33;
+}
+
 .titlebar {
   background-color: #222226;
 }
 
 .titlebar .consoleClear:hover {
-  background-color: #25262a;
+  background-color: #1c1d21;
 }
