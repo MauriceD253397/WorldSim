@@ -5,7 +5,10 @@ if (isset($_SESSION['login']))
 {
   if (isset($_SESSION['game']))
   {
+    $game_id = $_SESSION['game'];
+    $user_id = $_SESSION['game'];
     ?>
+
 <html class="no-js" lang="">
 
 <head>
@@ -28,29 +31,64 @@ if (isset($_SESSION['login']))
     <link rel="alternate stylesheet" type="text/css" href="css/gamethemes/christmastheme.css" title="Christmas Theme">
 
     <script type="text/javascript" src="scripts/styleswitcher.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <?php
+    $getGameStats = "SELECT `tbl_savegames`.`population`, `tbl_savegames`.`mana`, `tbl_savegames`.`turn` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
+    $game_stats = $database->query($getGameStats)->fetchAll();
+    ?>
     <script type="text/javascript">
-      var turn = 0;
+      var turn = <?php
+      foreach ($game_stats as $gStats) {
+        echo $gStats["turn"];
+      }?>;
+      document.getElementById('header_bar_game_turn').innerHTML = "Turn: " + turn;
       var peopleborn = 0;
       var peopledied = 0;
+      var population = <?php
+      foreach ($game_stats as $gStats) {
+        echo $gStats["population"];
+      }?>;
+      var mana = <?php
+      foreach ($game_stats as $gStats) {
+        echo $gStats["mana"];
+      }?>;
+
       function clearConsole()
       {
         document.getElementById('consoleTextArea').innerHTML = "";
       }
+
       function nextTurn()
       {
         turn++;
-        born = 0;
-        died = 0;
+        peopleborn = 0;
+        peopledied = 0;
+        population += peopleborn - peopledied;
+        mana += 0;
+        setStats();
         var events = new Array();
         var allEvents = "";
-        events[0] = "Population: " + peopleborn + " born and " + peopledied + " died";
-        events[1] = "2";
-        events[2] = "3";
+        events[0] = "Population changes: " + peopleborn + " born and " + peopledied + " died";
+        events[1] = "Current population: " + population;
+        events[2] = "Mana: " + mana;
         for (var i = 0; i < events.length; i++) {
           allEvents += "<li>" + events[i] + "</li>";
         }
         document.getElementById('header_bar_game_turn').innerHTML = "Turn: " + turn;
         document.getElementById('consoleTextArea').innerHTML = "<ul>" + allEvents + "</ul>";
+      }
+
+      function setStats()
+      {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "../app/SetGameStatsHandler.php?p="+population, true);
+        xmlhttp.send();
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "../app/SetGameStatsHandler.php?m="+mana, true);
+        xmlhttp.send();
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "../app/SetGameStatsHandler.php?t="+turn, true);
+        xmlhttp.send();
       }
     </script>
 </head>
@@ -58,22 +96,15 @@ if (isset($_SESSION['login']))
 <body>
     <div class="header_bar_game">
     <?php
-    $game_id = $_SESSION['game'];
     $getGameName = "SELECT `tbl_savegames`.`game_name` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
     $game_name = $database->query($getGameName)->fetchAll();
     foreach ($game_name as $gName) {
       ?><div class="header_bar_game_name"><div></div><span><?php echo $gName["game_name"];?></span><div></div></div><?php
     }
     ?>
-    <div id="header_bar_game_turn">Turn: 0</div>
+    <div id="header_bar_game_turn">Turn: <?php foreach ($game_stats as $gStats) { echo $gStats["turn"]; }?></div>
     <?php
-    $getGameStats = "SELECT `tbl_savegames`.`population`, `tbl_savegames`.`mana` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
-    $game_stats = $database->query($getGameStats)->fetchAll();
-    foreach ($game_stats as $gStats) {
-      echo " Population: ".$gStats["population"]." Mana: ".$gStats["mana"];
-    }
 
-    $user_id = $_SESSION['game'];
     $getUserScore = "SELECT `tbl_login`.`score` FROM `tbl_login` WHERE `tbl_login`.`id` = $user_id;";
     $userScore = $database->query($getUserScore)->fetchAll();
     foreach ($game_stats as $gStats) {
