@@ -6,7 +6,7 @@ if (isset($_SESSION['login']))
   if (isset($_SESSION['game']))
   {
     $game_id = $_SESSION['game'];
-    $user_id = $_SESSION['game'];
+    $user_name = $_SESSION['login'];
     ?>
 
 <html class="no-js" lang="">
@@ -95,31 +95,21 @@ if (isset($_SESSION['login']))
 </head>
 
 <body>
-    <div class="header_bar_game">
-    <?php
-    $getGameName = "SELECT `tbl_savegames`.`game_name` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
-    $game_name = $database->query($getGameName)->fetchAll();?>
-    <div class="header_bar_game_name"><div></div><span><?php foreach ($game_name as $gName) { echo $gName["game_name"]; }?></span><div></div></div>
-    <div id="header_bar_game_turn">Turn: <?php foreach ($game_stats as $gStats) { echo $gStats["turn"]; }?></div>
-    <div id="header_bar_game_population">Population: <?php foreach ($game_stats as $gStats) { echo $gStats["population"]; }?></div>
-    <div id="header_bar_game_mana">Mana: <?php foreach ($game_stats as $gStats) { echo $gStats["mana"]; }?></div>
-    <?php
 
-    $getUserScore = "SELECT `tbl_login`.`score` FROM `tbl_login` WHERE `tbl_login`.`id` = $user_id;";
-    $userScore = $database->query($getUserScore)->fetchAll();
-    foreach ($game_stats as $gStats) {
-      foreach ($userScore as $uScore) {
-        if ($gStats["population"] > $uScore["score"])
-        {
-          $population = $gStats["population"];
-          $setUserScore = "INSERT INTO `tbl_login` (`score`) VALUES ($population) WHERE `tbl_login`.`id` = $user_id;";
-        }
-      }
-    }
-    ?>
-    <a href="#settings"><div class="settings_button_sub"><div></div><span>Settings</span><div></div></div></a>
-    <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
+    <div class="header_bar_game">
+      <?php
+      $getGameName = "SELECT `tbl_savegames`.`game_name` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
+      $game_name = $database->query($getGameName)->fetchAll();?>
+      <div class="header_bar_game_name"><div></div><span><?php foreach ($game_name as $gName) { echo $gName["game_name"]; }?></span><div></div></div>
+      <div id="header_bar_game_turn">Turn: <?php foreach ($game_stats as $gStats) { echo $gStats["turn"]; }?></div>
+      <div id="header_bar_game_population">Population: <?php foreach ($game_stats as $gStats) { echo $gStats["population"]; }?></div>
+      <div id="header_bar_game_mana">Mana: <?php foreach ($game_stats as $gStats) { echo $gStats["mana"]; }?></div>
+      <?php
+      ?>
+      <a href="#settings"><div class="settings_button_sub"><div></div><span>Settings</span><div></div></div></a>
+      <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
     </div>
+
     <div id="settings" class="settings_overlay">
     	<div class="settings_popup">
     		<a class="close_settings" href="#">&times;</a>
@@ -159,9 +149,7 @@ if (isset($_SESSION['login']))
     	</div>
     </div>
 
-      <a onclick="nextTurn()">
-        <div>Next Turn</div>
-      </a>
+    <div class="playArea">
 
       <div class="console">
 
@@ -179,10 +167,17 @@ if (isset($_SESSION['login']))
           The console displays all events that have happened in your last turn.
         </div>
       </div>
-    </body>
+
+      <a onclick="nextTurn()">
+        <div>Next Turn</div>
+      </a>
+
+    </div>
+
+  </body>
 
 
-    </html><?php
+</html><?php
   }
   else
   { ?>
