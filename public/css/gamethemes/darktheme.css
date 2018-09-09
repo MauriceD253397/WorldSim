@@ -49,22 +49,28 @@ a {
   color: #06D85F;
 }
 
+/* PLAYAREA */
+.next_turn_button {
+  background-color: #222226;
+}
+
+.next_turn_button:hover {
+  background-color: #1c1d21;
+}
+
 /* CONSOLE */
 .console {
   background-color: #25262a;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background: #1c1d21;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #2b2c30;
 }
 
-/* Hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #2e2f33;
 }

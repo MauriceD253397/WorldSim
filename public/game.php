@@ -70,9 +70,9 @@ if (isset($_SESSION['login']))
         events[0] = "Population changes: " + peopleborn + " born and " + peopledied + " died";
         events[1] = "Current population: " + population;
         events[2] = "Mana: " + mana;
-        events[3] = "";
-        events[4] = "";
-        events[5] = "";
+        events[3] = "This is a very long sentence for testing purposes.";
+        events[4] = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z";
+        events[5] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         events[6] = "";
         events[7] = "";
         events[8] = "";
@@ -179,28 +179,37 @@ if (isset($_SESSION['login']))
 
     <div class="playArea">
 
-      <div class="console">
+      <div class="left_column">
+        <div class="console">
 
-        <div class="titlebar">
-          <div class="consoleTitle">Console</div>
-          <div></div>
-          <div class="consoleClear">
-            <a onclick="clearConsole()">
-              <div>Clear</div>
-            </a>
+          <div class="titlebar">
+            <div class="consoleTitle">Console</div>
+            <div></div>
+            <div class="consoleClear">
+              <a onclick="clearConsole()">
+                <div>Clear</div>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div class="consoleTextAreaOne">
-          <div id="consoleTextArea">
-            The console displays all events that have happened in your last turn.
+          <div class="consoleTextAreaOne">
+            <div id="consoleTextArea">
+              The console displays all events that have happened in your last turn.
+            </div>
           </div>
         </div>
       </div>
 
-      <a onclick="nextTurn()">
-        <div>Next Turn</div>
-      </a>
+      <div class="middle_column">
+      </div>
+
+      <div class="right_column">
+        <div class="next_turn_button" onclick="nextTurn()">
+          <div></div>
+            <span>Next Turn</span>
+          <div></div>
+        </div>
+      </div>
 
     </div>
 
