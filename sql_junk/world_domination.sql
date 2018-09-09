@@ -49,14 +49,15 @@ CREATE TABLE `tbl_savegames` (
   `date_created` datetime NOT NULL,
   `date_last_opened` datetime NOT NULL,
   `population` int(11) NOT NULL DEFAULT 0,
-  `mana` int(11) NOT NULL DEFAULT 0
+  `mana` int(11) NOT NULL DEFAULT 0,
+  `turn` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Tabelstructuur voor tabel `tbl_population`
 --
 
-CREATE TABLE `tbl_population` (
+/*CREATE TABLE `tbl_population` (
   `game_id` int(11) NOT NULL,
   `civilian_id` int(11) NOT NULL,
   `age` int(11) NOT NULL DEFAULT 0,
@@ -66,7 +67,7 @@ CREATE TABLE `tbl_population` (
   `strength` int(11) NOT NULL DEFAULT 0,
   `endurance` int(11) NOT NULL DEFAULT 0,
   `charisma` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
