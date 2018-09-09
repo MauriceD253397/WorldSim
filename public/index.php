@@ -97,6 +97,7 @@
                     <div></div>
 
                 </div>
+                <div class="game_version">Version: Alpha</div>
                 <?php
             }
                  ?>
