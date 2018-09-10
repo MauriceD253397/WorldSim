@@ -70,9 +70,9 @@ if (isset($_SESSION['login']))
         events[0] = "Population changes: " + peopleborn + " born and " + peopledied + " died";
         events[1] = "Current population: " + population;
         events[2] = "Mana: " + mana;
-        events[3] = "";
-        events[4] = "";
-        events[5] = "";
+        events[3] = "This is a very long sentence for testing purposes.";
+        events[4] = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z";
+        events[5] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         events[6] = "";
         events[7] = "";
         events[8] = "";
@@ -101,9 +101,9 @@ if (isset($_SESSION['login']))
         for (var i = 0; i < events.length; i++) {
           allEvents += "<li>" + events[i] + "</li>";
         }
-        document.getElementById('header_bar_game_turn').innerHTML = "Turn: " + turn;
-        document.getElementById('header_bar_game_population').innerHTML = "Population: " + population;
-        document.getElementById('header_bar_game_mana').innerHTML = "Mana: " + mana;
+        document.getElementById('game_stats_turn').innerHTML = "Turn: " + turn;
+        document.getElementById('game_stats_population').innerHTML = "Population: " + population;
+        document.getElementById('game_stats_mana').innerHTML = "Mana: " + mana;
         document.getElementById('consoleTextArea').innerHTML = "<ul>" + allEvents + "</ul>";
       }
 
@@ -129,13 +129,11 @@ if (isset($_SESSION['login']))
       $getGameName = "SELECT `tbl_savegames`.`game_name` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
       $game_name = $database->query($getGameName)->fetchAll();?>
       <div class="header_bar_game_name"><div></div><span><?php foreach ($game_name as $gName) { echo $gName["game_name"]; }?></span><div></div></div>
-      <div id="header_bar_game_turn">Turn: <?php foreach ($game_stats as $gStats) { echo $gStats["turn"]; }?></div>
-      <div id="header_bar_game_population">Population: <?php foreach ($game_stats as $gStats) { echo $gStats["population"]; }?></div>
-      <div id="header_bar_game_mana">Mana: <?php foreach ($game_stats as $gStats) { echo $gStats["mana"]; }?></div>
-      <?php
-      ?>
-      <a href="#settings"><div class="settings_button_sub"><div></div><span>Settings</span><div></div></div></a>
-      <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
+      <div></div>
+      <div class="header_bar_game_rightsub">
+        <a href="#settings"><div class="settings_button_sub"><div></div><span>Settings</span><div></div></div></a>
+        <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
+      </div>
     </div>
 
     <div id="settings" class="settings_overlay">
@@ -179,28 +177,61 @@ if (isset($_SESSION['login']))
 
     <div class="playArea">
 
-      <div class="console">
+      <div class="left_column">
 
-        <div class="titlebar">
-          <div class="consoleTitle">Console</div>
-          <div></div>
-          <div class="consoleClear">
-            <a onclick="clearConsole()">
-              <div>Clear</div>
-            </a>
-          </div>
+        <div class="game_stats">
+          <div id="game_stats_turn">Turn: <?php foreach ($game_stats as $gStats) { echo $gStats["turn"]; }?></div>
+          <div id="game_stats_population">Population: <?php foreach ($game_stats as $gStats) { echo $gStats["population"]; }?></div>
+          <div id="game_stats_population">Male/Female: <?php foreach ($game_stats as $gStats) { echo $gStats["population"]; }?></div>
+          <div id="game_stats_mana">Mana: <?php foreach ($game_stats as $gStats) { echo $gStats["mana"]; }?></div>
         </div>
 
-        <div class="consoleTextAreaOne">
-          <div id="consoleTextArea">
-            The console displays all events that have happened in your last turn.
+        <div class="console">
+
+          <div class="titlebar">
+            <div class="consoleTitle">Console</div>
+            <div></div>
+            <div class="consoleClear">
+              <a onclick="clearConsole()">
+                <div>Clear</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="consoleTextAreaOne">
+            <div id="consoleTextArea">
+              The console displays all events that have happened in your last turn.
+            </div>
           </div>
         </div>
       </div>
 
-      <a onclick="nextTurn()">
-        <div>Next Turn</div>
-      </a>
+      <div class="middle_column">
+        <div class="gui"></div>
+        <div class="event_buttons"></div>
+      </div>
+
+      <div class="right_column">
+
+        <div class="god_powers">
+          <div class="gpower"><div></div><span>1</span><div></div></div>
+          <div class="gpower"><div></div><span>2</span><div></div></div>
+          <div class="gpower"><div></div><span>3</span><div></div></div>
+          <div class="gpower"><div></div><span>4</span><div></div></div>
+          <div class="gpower"><div></div><span>5</span><div></div></div>
+          <div class="gpower"><div></div><span>6</span><div></div></div>
+          <div class="gpower"><div></div><span>7</span><div></div></div>
+          <div class="gpower"><div></div><span>8</span><div></div></div>
+          <div class="gpower"><div></div><span>9</span><div></div></div>
+          <div class="gpower"><div></div><span>10</span><div></div></div>
+        </div>
+
+        <div class="next_turn_button" onclick="nextTurn()">
+          <div></div>
+            <span>End Turn</span>
+          <div></div>
+        </div>
+      </div>
 
     </div>
 
