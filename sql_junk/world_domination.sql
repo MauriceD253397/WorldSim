@@ -48,9 +48,10 @@ CREATE TABLE `tbl_savegames` (
   `game_name` varchar(255) NOT NULL,
   `date_created` datetime NOT NULL,
   `date_last_opened` datetime NOT NULL,
-  `population` int(11) NOT NULL DEFAULT 0,
+  `turn` int(11) NOT NULL DEFAULT 0,
   `mana` int(11) NOT NULL DEFAULT 0,
-  `turn` int(11) NOT NULL DEFAULT 0
+  `population` int(11) NOT NULL DEFAULT 0,
+  `male_pop` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
