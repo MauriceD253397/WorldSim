@@ -33,7 +33,7 @@ if (isset($_SESSION['login']))
     <script type="text/javascript" src="scripts/styleswitcher.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <?php
-    $getGameStats = "SELECT `tbl_savegames`.`population`, `tbl_savegames`.`mana`, `tbl_savegames`.`turn` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
+    $getGameStats = "SELECT `tbl_savegames`.`turn`, `tbl_savegames`.`mana`, `tbl_savegames`.`population`, `tbl_savegames`.`male_pop` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
     $game_stats = $database->query($getGameStats)->fetchAll();
     ?>
     <script type="text/javascript">
@@ -47,10 +47,22 @@ if (isset($_SESSION['login']))
       foreach ($game_stats as $gStats) {
         echo $gStats["population"];
       }?>;
+      var male_population_percentage = <?php
+      foreach ($game_stats as $gStats) {
+        $male_pop_percentage = number_format((float) ($gStats["male_pop"]/$gStats["population"]*100), 1);
+        echo $male_pop_percentage;
+      }?>;
+      var female_population_percentage = <?php
+      foreach ($game_stats as $gStats) {
+        echo (100-$male_pop_percentage);
+      }?>;
       var mana = <?php
       foreach ($game_stats as $gStats) {
         echo $gStats["mana"];
       }?>;
+
+      var events = new Array();
+      var allEvents = "";
 
       function clearConsole()
       {
@@ -63,10 +75,10 @@ if (isset($_SESSION['login']))
         peopleborn = 0;
         peopledied = 0;
         population += peopleborn - peopledied;
+        // ADD MALE POPULATION CHANGES
+        // ADD FEMALE POPULATION CHANGES
         mana += 0;
         setStats();
-        var events = new Array();
-        var allEvents = "";
         events[0] = "Population changes: " + peopleborn + " born and " + peopledied + " died";
         events[1] = "Current population: " + population;
         events[2] = "Mana: " + mana;
@@ -101,8 +113,19 @@ if (isset($_SESSION['login']))
         for (var i = 0; i < events.length; i++) {
           allEvents += "<li>" + events[i] + "</li>";
         }
+        displayStats();
+      }
+
+      function displayStats()
+      {
         document.getElementById('game_stats_turn').innerHTML = "Turn: " + turn;
         document.getElementById('game_stats_population').innerHTML = "Population: " + population;
+        document.getElementById('maleperc').innerHTML = male_population_percentage;
+        if (male_population_percentage < 45.0) { document.getElementById('maleperc').style.color="red"; }
+        else { document.getElementById('maleperc').style.color="green"; }
+        document.getElementById('femaleperc').innerHTML = female_population_percentage;
+        if (female_population_percentage < 45.0) { document.getElementById('femaleperc').style.color="red"; }
+        else { document.getElementById('femaleperc').style.color="green"; }
         document.getElementById('game_stats_mana').innerHTML = "Mana: " + mana;
         document.getElementById('consoleTextArea').innerHTML = "<ul>" + allEvents + "</ul>";
       }
@@ -122,7 +145,7 @@ if (isset($_SESSION['login']))
     </script>
 </head>
 
-<body>
+<body onload="displayStats();">
 
     <div class="header_bar_game">
       <?php
@@ -180,10 +203,10 @@ if (isset($_SESSION['login']))
       <div class="left_column">
 
         <div class="game_stats">
-          <div id="game_stats_turn">Turn: <?php foreach ($game_stats as $gStats) { echo $gStats["turn"]; }?></div>
-          <div id="game_stats_population">Population: <?php foreach ($game_stats as $gStats) { echo $gStats["population"]; }?></div>
-          <div id="game_stats_population">Male/Female: <?php foreach ($game_stats as $gStats) { echo $gStats["population"]; }?></div>
-          <div id="game_stats_mana">Mana: <?php foreach ($game_stats as $gStats) { echo $gStats["mana"]; }?></div>
+          <div id="game_stats_turn">Turn: -</div>
+          <div id="game_stats_population">Population: -</div>
+          <div id="game_stats_population_mf">Male/Female: <span id="maleperc">-</span> / <span id="femaleperc">-</span></div>
+          <div id="game_stats_mana">Mana: -</div>
         </div>
 
         <div class="console">
