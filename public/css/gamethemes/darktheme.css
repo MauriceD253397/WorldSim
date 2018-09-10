@@ -58,6 +58,14 @@ a {
   background-color: #1c1d21;
 }
 
+.gui {
+  background-color: #606060;
+}
+
+.game_stats {
+  background-color: #747474;
+}
+
 /* CONSOLE */
 .console {
   background-color: #25262a;
@@ -80,5 +88,15 @@ a {
 }
 
 .titlebar .consoleClear:hover {
+  background-color: #1c1d21;
+}
+
+/* GOD POWERS */
+
+.god_powers .gpower {
+  background-color: #222226;
+}
+
+.god_powers .gpower:hover {
   background-color: #1c1d21;
 }
