@@ -17,6 +17,14 @@ if (isset($_SESSION['login']))
       $database->query($setGameStats);
     }
 
+    // get the mp parameter from URL
+    $game_male_population = $_REQUEST["mp"];
+    if (!$game_male_population == 0)
+    {
+      $setGameStats = "UPDATE `tbl_savegames` SET `male_pop` = $game_male_population WHERE `tbl_savegames`.`game_id` = $game_id";
+      $database->query($setGameStats);
+    }
+
     // set user highscore
     /*$getUserScore = "SELECT `tbl_login`.`score` FROM `tbl_login` WHERE `tbl_login`.`id` = (SELECT `tbl_savegames`.`user_id` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id)";
     $userScore = $database->query($getUserScore)->fetchAll();

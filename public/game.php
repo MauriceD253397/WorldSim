@@ -47,6 +47,10 @@ if (isset($_SESSION['login']))
       foreach ($game_stats as $gStats) {
         echo $gStats["population"];
       }?>;
+      var male_pop = <?php
+      foreach ($game_stats as $gStats) {
+        echo $gStats["male_pop"];
+      }?>;
       var male_population_percentage = <?php
       foreach ($game_stats as $gStats) {
         $male_pop_percentage = number_format((float) ($gStats["male_pop"]/$gStats["population"]*100), 1);
@@ -79,6 +83,9 @@ if (isset($_SESSION['login']))
         // ADD MALE POPULATION CHANGES
         // ADD FEMALE POPULATION CHANGES
         mana += 0;
+        for (var i = 0; i < events.length; i++) {
+          allEvents = "";
+        }
         setStats();
         events[0] = "Population changes: " + peopleborn + " born and " + peopledied + " died";
         events[1] = "Current population: " + population;
@@ -119,6 +126,7 @@ if (isset($_SESSION['login']))
 
       function displayStats()
       {
+        clearConsole();
         document.getElementById('game_stats_turn').innerHTML = "Turn: " + turn;
         document.getElementById('game_stats_population').innerHTML = "Population: " + population;
         document.getElementById('peopleborn').innerHTML = peopleborn;
@@ -144,6 +152,9 @@ if (isset($_SESSION['login']))
       {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", "../app/SetGameStatsHandler.php?p="+population, true);
+        xmlhttp.send();
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "../app/SetGameStatsHandler.php?mp="+male_pop, true);
         xmlhttp.send();
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", "../app/SetGameStatsHandler.php?m="+mana, true);
