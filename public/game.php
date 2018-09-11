@@ -162,7 +162,13 @@ if (isset($_SESSION['login']))
       $getGameName = "SELECT `tbl_savegames`.`game_name` FROM `tbl_savegames` WHERE `tbl_savegames`.`game_id` = $game_id";
       $game_name = $database->query($getGameName)->fetchAll();?>
       <div class="header_bar_game_name"><div></div><span><?php foreach ($game_name as $gName) { echo $gName["game_name"]; }?></span><div></div></div>
-      <div></div>
+      <div class="header_bar_stats">
+        <div></div>
+        <div class="header_bar_stats_div"><div></div><span id="game_stats_turn">Turn: -</span><div></div></div>
+        <div></div>
+        <div class="header_bar_stats_div"><div></div><span id="game_stats_mana">Mana: -</span><div></div></div>
+        <div></div>
+      </div>
       <div class="header_bar_game_rightsub">
         <a href="#settings"><div class="settings_button_sub"><div></div><span>Settings</span><div></div></div></a>
         <a href="../app/QuitGameHandler.php"><div class="quit_button"><div></div><span>Quit</span><div></div></div></a>
@@ -213,11 +219,11 @@ if (isset($_SESSION['login']))
       <div class="left_column">
 
         <div class="game_stats">
-          <div id="game_stats_turn">Turn: -</div>
-          <div id="game_stats_population">Population: -</div>
-          <div id="game_stats_population_mf">Born / Died: <span id="peopleborn" class="positive">-</span> / <span id="peopledied" class="negative">-</span></div>
-          <div id="game_stats_population_mf">Male / Female: <span id="maleperc">-</span> / <span id="femaleperc">-</span></div>
-          <div id="game_stats_mana">Mana: -</div>
+          <span></span><div id="game_stats_population">Population: -</div>
+          <span></span><div id="game_stats_population_mf">Born / Died: <span id="peopleborn" class="positive">-</span> / <span id="peopledied" class="negative">-</span></div>
+          <span></span><div id="game_stats_population_mf">Male / Female: <span id="maleperc">-</span> / <span id="femaleperc">-</span></div>
+          <span></span><div id="game_stats_x">X: -</div>
+          <span></span><div id="game_stats_y">Y: -</div></span><span>
         </div>
 
         <div class="console">

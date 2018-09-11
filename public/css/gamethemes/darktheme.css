@@ -8,11 +8,16 @@ a {
 }
 
 /* HEADER */
-.header_bar_game {
+
+.header_bar_game_name {
+  background-color: #222226;
+}
+
+.header_bar_stats {
   background-color: #25262a;
 }
 
-.header_bar_game_name {
+.header_bar_stats span {
   background-color: #222226;
 }
 
@@ -63,12 +68,16 @@ a {
 }
 
 .game_stats {
-  background-color: #525252;
+  background-color: #25262a;
+}
+
+.game_stats div {
+  background-color: #222226;
 }
 
 /* CONSOLE */
 .console {
-  background-color: #25262a;
+  background-color: #17181b;
 }
 
 ::-webkit-scrollbar-track {
