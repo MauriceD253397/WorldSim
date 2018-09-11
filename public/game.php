@@ -121,12 +121,21 @@ if (isset($_SESSION['login']))
       {
         document.getElementById('game_stats_turn').innerHTML = "Turn: " + turn;
         document.getElementById('game_stats_population').innerHTML = "Population: " + population;
+        document.getElementById('peopleborn').innerHTML = peopleborn;
+        document.getElementById('peopledied').innerHTML = peopledied;
+
         document.getElementById('maleperc').innerHTML = male_population_percentage;
         if (male_population_percentage < 45.0) { document.getElementById('maleperc').style.color="red"; }
         else { document.getElementById('maleperc').style.color="green"; }
+        if (male_population_percentage > 55.0) { document.getElementById('moremale').style.color="red"; }
+        else { document.getElementById('moremale').style.color="green"; }
+
         document.getElementById('femaleperc').innerHTML = female_population_percentage;
         if (female_population_percentage < 45.0) { document.getElementById('femaleperc').style.color="red"; }
         else { document.getElementById('femaleperc').style.color="green"; }
+        if (female_population_percentage > 55.0) { document.getElementById('morefemale').style.color="red"; }
+        else { document.getElementById('morefemale').style.color="green"; }
+
         document.getElementById('game_stats_mana').innerHTML = "Mana: " + mana;
         document.getElementById('consoleTextArea').innerHTML = "<ul>" + allEvents + "</ul>";
       }
@@ -206,7 +215,8 @@ if (isset($_SESSION['login']))
         <div class="game_stats">
           <div id="game_stats_turn">Turn: -</div>
           <div id="game_stats_population">Population: -</div>
-          <div id="game_stats_population_mf">Male/Female: <span id="maleperc">-</span> / <span id="femaleperc">-</span></div>
+          <div id="game_stats_population_mf">Born / Died: <span id="peopleborn" class="positive">-</span> / <span id="peopledied" class="negative">-</span></div>
+          <div id="game_stats_population_mf">Male / Female: <span id="maleperc">-</span> / <span id="femaleperc">-</span></div>
           <div id="game_stats_mana">Mana: -</div>
         </div>
 
@@ -238,16 +248,75 @@ if (isset($_SESSION['login']))
       <div class="right_column">
 
         <div class="god_powers">
-          <div class="gpower" onclick=""><div></div><span class="positive">X% more males<br>for Y weeks</span><span>- Z mana</span><div></div></div>
-          <div class="gpower"><div></div><span class="positive">X% more females<br>for Y weeks</span><span>- Z mana</span><div></div></div>
-          <div class="gpower"><div></div><span class="positive">X% better yield<br>for Y weeks</span><span>- Z mana</span><div></div></div>
-          <div class="gpower"><div></div><span class="negative">X% worse yield<br>for Y weeks</span><span>+ Z mana</span><div></div></div>
-          <div class="gpower"><div></div><span>5</span><span></span><div></div></div>
-          <div class="gpower"><div></div><span>6</span><span></span><div></div></div>
-          <div class="gpower"><div></div><span>7</span><span></span><div></div></div>
-          <div class="gpower"><div></div><span>8</span><span></span><div></div></div>
-          <div class="gpower"><div></div><span>9</span><span></span><div></div></div>
-          <div class="gpower"><div></div><span>10</span><span></span><div></div></div>
+          <div class="gpower"><div></div>
+            <span id="moremale">X% more males<br>born for Y weeks</span>
+            <span>- Z mana</span>
+            <div></div>
+            <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+          </div>
+
+          <div class="gpower"><div></div>
+            <span id="morefemale">X% more females<br>born for Y weeks</span>
+            <span>- Z mana</span>
+            <div></div>
+            <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+        </div>
+
+          <div class="gpower"><div></div>
+            <span class="positive">X% better yield<br>for Y weeks</span>
+            <span>- Z mana</span>
+            <div></div>
+            <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+        </div>
+
+          <div class="gpower"><div></div>
+          <span class="negative">X% worse yield<br>for Y weeks</span>
+          <span>+ Z mana</span>
+          <div></div>
+          <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+        </div>
+
+          <div class="gpower"><div></div>
+            <span class="positive">X% better -<br>for Y weeks</span>
+            <span>- Z mana</span>
+            <div></div>
+            <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+        </div>
+
+          <div class="gpower"><div></div>
+          <span class="negative">X% worse -<br>for Y weeks</span>
+          <span>+ Z mana</span>
+          <div></div>
+          <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+        </div>
+
+          <div class="gpower"><div></div>
+            <span class="positive">X% better -<br>for Y weeks</span>
+            <span>- Z mana</span>
+            <div></div>
+            <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+        </div>
+
+          <div class="gpower"><div></div>
+          <span class="negative">X% worse -<br>for Y weeks</span>
+          <span>+ Z mana</span>
+          <div></div>
+          <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+        </div>
+
+          <div class="gpower"><div></div>
+            <span class="positive">X% better -<br>for Y weeks</span>
+            <span>- Z mana</span>
+            <div></div>
+            <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+        </div>
+
+          <div class="gpower"><div></div>
+          <span class="negative">X% worse -<br>for Y weeks</span>
+          <span>+ Z mana</span>
+          <div></div>
+          <div class="gp_upgrades"><div>Chance</div><div>Time</div><div>Mana</div></div>
+        </div>
         </div>
 
         <div class="next_turn_button" onclick="nextTurn()">
