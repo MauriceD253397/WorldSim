@@ -71,6 +71,7 @@ if (isset($_SESSION['login']))
 
       function nextTurn()
       {
+        // ADD GAME ID CHECK
         turn++;
         peopleborn = 0;
         peopledied = 0;
@@ -237,16 +238,16 @@ if (isset($_SESSION['login']))
       <div class="right_column">
 
         <div class="god_powers">
-          <div class="gpower"><div></div><span>1</span><div></div></div>
-          <div class="gpower"><div></div><span>2</span><div></div></div>
-          <div class="gpower"><div></div><span>3</span><div></div></div>
-          <div class="gpower"><div></div><span>4</span><div></div></div>
-          <div class="gpower"><div></div><span>5</span><div></div></div>
-          <div class="gpower"><div></div><span>6</span><div></div></div>
-          <div class="gpower"><div></div><span>7</span><div></div></div>
-          <div class="gpower"><div></div><span>8</span><div></div></div>
-          <div class="gpower"><div></div><span>9</span><div></div></div>
-          <div class="gpower"><div></div><span>10</span><div></div></div>
+          <div class="gpower" onclick=""><div></div><span class="positive">X% more males<br>for Y weeks</span><span>- Z mana</span><div></div></div>
+          <div class="gpower"><div></div><span class="positive">X% more females<br>for Y weeks</span><span>- Z mana</span><div></div></div>
+          <div class="gpower"><div></div><span class="positive">X% better yield<br>for Y weeks</span><span>- Z mana</span><div></div></div>
+          <div class="gpower"><div></div><span class="negative">X% worse yield<br>for Y weeks</span><span>+ Z mana</span><div></div></div>
+          <div class="gpower"><div></div><span>5</span><span></span><div></div></div>
+          <div class="gpower"><div></div><span>6</span><span></span><div></div></div>
+          <div class="gpower"><div></div><span>7</span><span></span><div></div></div>
+          <div class="gpower"><div></div><span>8</span><span></span><div></div></div>
+          <div class="gpower"><div></div><span>9</span><span></span><div></div></div>
+          <div class="gpower"><div></div><span>10</span><span></span><div></div></div>
         </div>
 
         <div class="next_turn_button" onclick="nextTurn()">
