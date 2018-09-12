@@ -163,10 +163,12 @@ if (isset($_SESSION['login']))
         xmlhttp.open("GET", "../app/SetGameStatsHandler.php?t="+turn, true);
         xmlhttp.send();
       }
+
+      window.onload = displayStats;
     </script>
 </head>
 
-<body onload="displayStats();">
+<body>
 
     <div class="header_bar_game">
       <?php
